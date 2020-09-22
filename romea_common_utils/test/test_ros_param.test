@@ -1,6 +1,8 @@
 <launch>
 
-  <test test-name="test_read_params" pkg="romea" type="romea_test_ros_params">
+  <test test-name="test_read_params"
+        pkg="romea_common_utils"
+        type="romea_common_utils_test_ros_params">
       <rosparam param="vector3d">[2.3, 5.4, -8.9]</rosparam>
       <rosparam param="vector3i">[2, -5, 9]</rosparam>
       <rosparam param="geodetic">[45.85207, 3.16482, 300.0]</rosparam>

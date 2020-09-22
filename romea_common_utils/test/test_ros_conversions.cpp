@@ -2,8 +2,8 @@
 #include <gtest/gtest.h>
 
 //romea
-#include "ros/conversions/TransformConversions.hpp"
-#include "ros/conversions/GeometryConversions.hpp"
+#include "romea_common_utils/conversions/TransformConversions.hpp"
+#include "romea_common_utils/conversions/GeometryConversions.hpp"
 
 //-----------------------------------------------------------------------------
 TEST(TestRosConversions, testvector3Conversion)

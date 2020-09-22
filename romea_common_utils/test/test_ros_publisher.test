@@ -1,5 +1,7 @@
 <launch>
 
-  <test test-name="test_publishers" pkg="romea" type="romea_test_ros_publisher"/>
+  <test test-name="test_publishers"
+        pkg="romea_common_utils"
+        type="romea_common_utils_test_ros_publisher"/>
 
 </launch>

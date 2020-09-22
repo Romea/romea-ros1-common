@@ -5,8 +5,8 @@
 #include <ros/ros.h>
 
 //romea
-#include "ros/params/RosParam.hpp"
-#include "ros/params/RosEigenParam.hpp"
+#include "romea_common_utils/params/RosParam.hpp"
+#include "romea_common_utils/params/RosEigenParam.hpp"
 
 TEST(TestRosParams, loadVector3d)
 {

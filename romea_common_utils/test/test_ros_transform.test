@@ -1,6 +1,12 @@
 <launch>
 
-  <node pkg="tf2_ros" type="static_transform_publisher" name="a_b_broadcaster" args="1 2 3 0 0 0 1 a b" />
-  <test test-name="test_lookup_transform_once" pkg="romea" type="romea_test_ros_transform"/>
+  <node pkg="tf2_ros"
+        type="static_transform_publisher"
+        name="a_b_broadcaster"
+        args="1 2 3 0 0 0 1 a b" />
+
+  <test test-name="test_lookup_transform_once"
+        pkg="romea_common_utils"
+        type="romea_common_utils_test_ros_transform"/>
 
 </launch>
