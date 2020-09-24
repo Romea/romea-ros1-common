@@ -4,6 +4,7 @@
 //romea
 #include "romea_common_utils/conversions/TransformConversions.hpp"
 #include "romea_common_utils/conversions/GeometryConversions.hpp"
+#include "romea_common_utils/conversions/DiagnosticConversions.hpp"
 
 //-----------------------------------------------------------------------------
 TEST(TestRosConversions, testvector3Conversion)
@@ -100,6 +101,30 @@ TEST(TestRosConversions, testTransformConversion)
       EXPECT_NEAR(transform.linear()(i,j),rotation(i,j),0.00001);
     }
   }
+}
+
+//-----------------------------------------------------------------------------
+TEST(TestRosConversions, testDiagnosticConversion)
+{
+
+  romea::DiagnosticReport report;
+  report.diagnostics.push_back(romea::Diagnostic(romea::DiagnosticStatus::OK,"foo"));
+  report.diagnostics.push_back(romea::Diagnostic(romea::DiagnosticStatus::ERROR,"bar"));
+  report.info["foo"]="valid";
+  report.info["bar"]="empty";
+
+  diagnostic_msgs::DiagnosticStatus status;
+  romea::toRosDiagnosticMsg("baz","qux",report,status);
+
+  EXPECT_STREQ(status.name.c_str(),"baz");
+  EXPECT_STREQ(status.hardware_id.c_str(),"qux");
+  EXPECT_EQ(status.level,diagnostic_msgs::DiagnosticStatus::ERROR);
+  EXPECT_STREQ(status.message.c_str(),"foo bar ");
+  EXPECT_STREQ(status.values[0].key.c_str(),"bar");
+  EXPECT_STREQ(status.values[0].value.c_str(),"empty");
+  EXPECT_STREQ(status.values[1].key.c_str(),"foo");
+  EXPECT_STREQ(status.values[1].value.c_str(),"valid");
+
 }
 
 //-----------------------------------------------------------------------------

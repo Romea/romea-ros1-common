@@ -31,6 +31,7 @@ include_directories(
     SYSTEM ${EIGEN3_INCLUDE_DIRS})
 
 add_library(romea_common_utils
+    src/conversions/DiagnosticConversions.cpp
     src/conversions/TimeConversions.cpp
     src/conversions/GeometryConversions.cpp
     src/conversions/TransformConversions.cpp

@@ -4,10 +4,12 @@
 //romea
 #include "test_ros_publisher_utils.hpp"
 #include "romea_common_utils/conversions/TransformConversions.hpp"
+#include "romea_common_utils/conversions/DiagnosticConversions.hpp"
 #include "romea_common_utils/publishers/MessagePublisher.hpp"
 #include "romea_common_utils/publishers/StampedMessagePublisher.hpp"
 #include "romea_common_utils/publishers/OdomPublisher.hpp"
 #include "romea_common_utils/publishers/TransformPublisher.hpp"
+#include "romea_common_utils/publishers/DiagnosticPublisher.hpp"
 
 
 TEST(TestRosPublisher, testMessagePublisher)
@@ -76,6 +78,28 @@ TEST(TestRosPublisher, testTransformPublisher)
   ros::spinOnce();
 
   EXPECT_TRUE(tf_buffer.canTransform("bar","foo",t,ros::Duration(1)));
+}
+
+TEST(TestRosPublisher, testDiagnosticPublisher)
+{
+  ros::NodeHandle nh;
+  AnyHelper<diagnostic_msgs::DiagnosticArray> h;
+  romea::DiagnosticPublisher<romea::DiagnosticReport> pub(nh,"foo");
+  ros::Subscriber sub = nh.subscribe("/diagnostics", 0, &AnyHelper<diagnostic_msgs::DiagnosticArray>::cb, &h);
+
+  ros::Time t= ros::Time::now();
+  romea::DiagnosticReport report;
+  report.diagnostics.push_back(romea::Diagnostic(romea::DiagnosticStatus::ERROR,"bar"));
+  report.info["bar"]="error";
+  pub.publish(t,report);
+  ros::spinOnce();
+
+  EXPECT_EQ(sub.getNumPublishers(), 1U);
+  EXPECT_EQ(h.data.header.stamp.toNSec(),t.toNSec());
+  EXPECT_STREQ(h.data.status[0].name.c_str(),"foo");
+  EXPECT_EQ(h.data.status[0].level,diagnostic_msgs::DiagnosticStatus::ERROR);
+  EXPECT_STREQ(h.data.status[0].values[0].key.c_str(),"bar");
+  EXPECT_STREQ(h.data.status[0].values[0].value.c_str(),"error");
 }
 
 int main(int argc, char** argv)

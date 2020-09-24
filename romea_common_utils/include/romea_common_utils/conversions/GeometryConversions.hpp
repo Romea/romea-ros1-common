@@ -1,5 +1,5 @@
-#ifndef _romea_GeometryConversiond_hpp_
-#define _romea_GeometryConversiond_hpp_
+#ifndef _romea_GeometryConversions_hpp_
+#define _romea_GeometryConversions_hpp_
 
 //ros
 #include <geometry_msgs/Vector3.h>
@@ -11,6 +11,7 @@
 
 namespace romea
 {
+
 void toRomea(const geometry_msgs::Vector3 & position_msg,
              Eigen::Vector3d & eigen_position);
 
