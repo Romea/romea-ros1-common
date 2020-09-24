@@ -24,23 +24,19 @@ public :
                 const std::string & frame_id,
                 const std::string & child_frame_id,
                 const size_t &queue_size);
-
-  virtual ~OdomPublisher()=default;
-
-
 public :
 
-  virtual void init(ros::NodeHandle &nh,
-                    const std::string & topic_name,
-                    const std::string & frame_id,
-                    const std::string & child_frame_id,
-                    const size_t &queue_size);
+  void init(ros::NodeHandle &nh,
+            const std::string & topic_name,
+            const std::string & frame_id,
+            const std::string & child_frame_id,
+            const size_t &queue_size);
 
-  virtual void publish(const Duration & duration,
-                       const DataType &data);
+  void publish(const Duration & duration,
+               const DataType &data);
 
-  virtual void publish(const ros::Time & stamp,
-                       const DataType &data);
+  void publish(const ros::Time & stamp,
+               const DataType &data);
 
 public :
 

@@ -16,15 +16,13 @@ public :
                    const std::string & topic_name,
                    const size_t &queue_size);
 
-  virtual ~MessagePublisher()=default;
-
 public :
 
-  virtual void init(ros::NodeHandle &nh,
+  void init(ros::NodeHandle &nh,
                     const std::string & topic_name,
                     const size_t &queue_size);
 
-  virtual void publish(const DataType & data);
+  void publish(const DataType & data);
 
 protected :
 

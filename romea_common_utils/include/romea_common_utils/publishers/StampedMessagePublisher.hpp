@@ -16,22 +16,19 @@ public :
                           const std::string & topic_name,
                           const std::string & frame_id,
                           const size_t &queue_size);
-
-  virtual ~StampedMessagePublisher()=default;
-
 public :
 
-  virtual void init(ros::NodeHandle &nh,
-                    const std::string & topic_name,
-                    const std::string & frame_id,
-                    const size_t &queue_size);
+  void init(ros::NodeHandle &nh,
+            const std::string & topic_name,
+            const std::string & frame_id,
+            const size_t &queue_size);
 
-  virtual void publish(const ros::Time & stamp,
-                       const DataType & data);
+  void publish(const ros::Time & stamp,
+               const DataType & data);
 
 
-  virtual void publish(const romea::Duration & duration,
-                       const DataType & data);
+  void publish(const romea::Duration & duration,
+               const DataType & data);
 
 protected :
 
