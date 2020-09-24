@@ -84,7 +84,7 @@ TEST(TestRosPublisher, testDiagnosticPublisher)
 {
   ros::NodeHandle nh;
   AnyHelper<diagnostic_msgs::DiagnosticArray> h;
-  romea::DiagnosticPublisher<romea::DiagnosticReport> pub(nh,"foo");
+  romea::DiagnosticPublisher<romea::DiagnosticReport> pub(nh,"foo",1.0);
   ros::Subscriber sub = nh.subscribe("/diagnostics", 0, &AnyHelper<diagnostic_msgs::DiagnosticArray>::cb, &h);
 
   ros::Time t= ros::Time::now();

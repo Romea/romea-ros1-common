@@ -20,7 +20,10 @@ void toRosDiagnosticMsg(const std::string & diagnoctic_name,
 
   for(const auto & diagnostic : report.diagnostics)
   {
-    msg.message+=diagnostic.message+" ";
+    if(diagnostic.status!=DiagnosticStatus::OK)
+    {
+      msg.message+=diagnostic.message+" ";
+    }
   }
 
   for(const auto & p : report.info)

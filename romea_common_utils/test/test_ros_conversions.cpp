@@ -119,7 +119,7 @@ TEST(TestRosConversions, testDiagnosticConversion)
   EXPECT_STREQ(status.name.c_str(),"baz");
   EXPECT_STREQ(status.hardware_id.c_str(),"qux");
   EXPECT_EQ(status.level,diagnostic_msgs::DiagnosticStatus::ERROR);
-  EXPECT_STREQ(status.message.c_str(),"foo bar ");
+  EXPECT_STREQ(status.message.c_str(),"bar ");
   EXPECT_STREQ(status.values[0].key.c_str(),"bar");
   EXPECT_STREQ(status.values[0].value.c_str(),"empty");
   EXPECT_STREQ(status.values[1].key.c_str(),"foo");
