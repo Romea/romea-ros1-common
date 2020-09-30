@@ -34,10 +34,7 @@ add_library(romea_common_utils
     src/conversions/DiagnosticConversions.cpp
     src/conversions/TimeConversions.cpp
     src/conversions/GeometryConversions.cpp
-    src/conversions/TransformConversions.cpp
-    src/diagnostics/DiagnosticReliability.cpp
-    src/diagnostics/DiagnosticNLSE.cpp
-    )
+    src/conversions/TransformConversions.cpp)
 
 target_link_libraries(romea_common_utils ${catkin_LIBRARIES})
 
