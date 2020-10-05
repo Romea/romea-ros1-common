@@ -6,37 +6,46 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weffc++ -Wall -Wextra -std=c++17 -O3")
 #######################
 ## Find dependencies ##
 #######################
-find_package(catkin REQUIRED COMPONENTS roscpp romea_common tf2_ros tf2_eigen nav_msgs diagnostic_updater)
-find_package(Boost REQUIRED COMPONENTS system)
-
-find_package( PkgConfig )
-pkg_check_modules( EIGEN3 REQUIRED eigen3 )
-
+find_package(catkin REQUIRED COMPONENTS roscpp tf2_ros tf2_eigen nav_msgs diagnostic_updater)
+find_package(romea_common REQUIRED)
 
 ###################################
 ## catkin specific configuration ##
 ###################################
 catkin_package(
-    INCLUDE_DIRS include
-    LIBRARIES ${PROJECT_NAME}
-    CATKIN_DEPENDS ${${PROJECT_NAME}_CATKIN_DEPS})
+  INCLUDE_DIRS include
+  LIBRARIES ${PROJECT_NAME}
+  CATKIN_DEPENDS ${${PROJECT_NAME}_CATKIN_DEPS})
 
 ###########
 ## Build ##
 ###########
 
-include_directories(
-    include
-    SYSTEM ${catkin_INCLUDE_DIRS}
-    SYSTEM ${EIGEN3_INCLUDE_DIRS})
+#include_directories(
+#    include
+#    SYSTEM ${catkin_INCLUDE_DIRS}
+#    SYSTEM ${EIGEN3_INCLUDE_DIRS}
+#    SYSTEM ${romea_common_INCLUDE_DIRS})
 
-add_library(romea_common_utils
-    src/conversions/DiagnosticConversions.cpp
-    src/conversions/TimeConversions.cpp
-    src/conversions/GeometryConversions.cpp
-    src/conversions/TransformConversions.cpp)
+add_library(${PROJECT_NAME}
+  src/conversions/DiagnosticConversions.cpp
+  src/conversions/TimeConversions.cpp
+  src/conversions/GeometryConversions.cpp
+  src/conversions/TransformConversions.cpp)
 
-target_link_libraries(romea_common_utils ${catkin_LIBRARIES})
+target_include_directories( ${PROJECT_NAME} PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+  ${catkin_INCLUDE_DIRS}
+  )
+
+target_include_directories( ${PROJECT_NAME} SYSTEM PUBLIC
+  ${romea_common_INCLUDE_DIRS}
+  )
+
+target_link_libraries(${PROJECT_NAME}
+  ${catkin_LIBRARIES}
+  romea_common::romea_common)
 
 
 #############
