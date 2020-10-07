@@ -36,10 +36,10 @@ add_library(${PROJECT_NAME}
 target_include_directories( ${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-  ${catkin_INCLUDE_DIRS}
   )
 
 target_include_directories( ${PROJECT_NAME} SYSTEM PUBLIC
+  ${catkin_INCLUDE_DIRS}
   ${romea_common_INCLUDE_DIRS}
   )
 
