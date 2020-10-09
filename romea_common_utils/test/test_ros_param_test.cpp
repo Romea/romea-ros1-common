@@ -44,6 +44,17 @@ TEST(TestRosParams, loadGeodeticCoordinate)
   EXPECT_NEAR(geodetic_coordinates.getAltitude(),300.0,0.000001);
 }
 
+TEST(TestRosParams, loadMapFloat)
+{
+  ros::NodeHandle private_nh("~");
+  std::map<std::string,double> map ;
+
+  EXPECT_NO_THROW({map=romea::loadMap<double>(private_nh,"map_float");});
+  EXPECT_DOUBLE_EQ(map["foo"],0.34);
+  EXPECT_DOUBLE_EQ(map["bar"],-2.7);
+  EXPECT_DOUBLE_EQ(map["baz"],5.5);
+}
+
 
 int main(int argc, char** argv)
 {

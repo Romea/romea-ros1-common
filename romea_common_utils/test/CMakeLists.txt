@@ -1,5 +1,6 @@
 find_package(rostest REQUIRED)
 
+
 catkin_add_gtest(${PROJECT_NAME}_test_ros_conversions test_ros_conversions.cpp )
 target_link_libraries(${PROJECT_NAME}_test_ros_conversions ${PROJECT_NAME})
 

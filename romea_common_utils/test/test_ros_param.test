@@ -6,6 +6,11 @@
       <rosparam param="vector3d">[2.3, 5.4, -8.9]</rosparam>
       <rosparam param="vector3i">[2, -5, 9]</rosparam>
       <rosparam param="geodetic">[45.85207, 3.16482, 300.0]</rosparam>
+      <rosparam param="map_float">
+         foo: 0.34
+         bar: -2.7
+         baz: 5.5
+      </rosparam>
   </test>
 
 </launch>
