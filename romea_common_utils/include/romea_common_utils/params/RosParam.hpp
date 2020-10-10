@@ -18,7 +18,7 @@ inline std::string searchParam(const ros::NodeHandle &nodeHandle,const std::stri
   std::string result;
   if(!nodeHandle.searchParam(paramName,result))
   {
-    throw(std::runtime_error("Failed to find "+ paramName +"from param server"));
+    throw(std::runtime_error("Failed to find "+ paramName +" from param server"));
   }
   return result;
 }
@@ -32,7 +32,7 @@ inline T loadParam(const ros::NodeHandle &nodeHandle,
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
   if(!nodeHandle.getParam(resolvedParamName,value))
   {
-    throw(std::runtime_error("Failed to read "+ resolvedParamName +"from param server"));
+    throw(std::runtime_error("Failed to read "+ resolvedParamName +" from param server"));
   }
   return value;
 }
@@ -46,7 +46,7 @@ inline std::vector<T> loadVector(const ros::NodeHandle &nodeHandle,
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
   if(!nodeHandle.getParam(resolvedParamName,vector))
   {
-    throw(std::runtime_error("Failed to read "+ resolvedParamName +"from param server"));
+    throw(std::runtime_error("Failed to read "+ resolvedParamName +" from param server"));
   }
   return vector;
 }
@@ -61,7 +61,7 @@ inline std::map<std::string,T> loadMap(const ros::NodeHandle &nodeHandle,
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
   if(!nodeHandle.getParam(resolvedParamName,xml_rpc_map))
   {
-    throw(std::runtime_error("Failed to read "+ resolvedParamName +"from param server"));
+    throw(std::runtime_error("Failed to read "+ resolvedParamName +" from param server"));
   }
 
   //  xml_map.getType() TypeStruct
@@ -70,7 +70,14 @@ inline std::map<std::string,T> loadMap(const ros::NodeHandle &nodeHandle,
   XmlRpc::XmlRpcValue::ValueStruct::const_iterator it;
   for(it = xml_rpc_map.begin() ; it != xml_rpc_map.end(); ++it)
   {
-    map.emplace(it->first,XmlRpc::XmlRpcValue(it->second));
+    if(map.find(it->first)==map.end())
+    {
+      map.emplace(it->first,XmlRpc::XmlRpcValue(it->second));
+    }
+    else
+    {
+      throw(std::runtime_error("Key "+it->first+ "is already exist cannot load map "+resolvedParamName+ " from param server"));
+    }
   }
 
   return map;

@@ -55,6 +55,13 @@ TEST(TestRosParams, loadMapFloat)
   EXPECT_DOUBLE_EQ(map["baz"],5.5);
 }
 
+TEST(TestRosParams, loadUnavailableMap)
+{
+  ros::NodeHandle private_nh("~");
+  std::map<std::string,double> map ;
+  EXPECT_THROW({map=romea::loadMap<double>(private_nh,"unavailable_float");},std::runtime_error);
+}
+
 
 int main(int argc, char** argv)
 {

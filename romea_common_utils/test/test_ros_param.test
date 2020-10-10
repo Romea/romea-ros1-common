@@ -11,6 +11,12 @@
          bar: -2.7
          baz: 5.5
       </rosparam>
+      <rosparam param="unavailable_map">
+         foo: 0.34
+         foo: -2.7
+         baz: 5.5
+      </rosparam>
+
   </test>
 
 </launch>
