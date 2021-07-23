@@ -2,9 +2,6 @@ cache:
   paths:
     - ccache/
 
-variables:
-  ROS_PACKAGES_TO_INSTALL: tf2-eigen #fix dependency for kinetic
-
 before_script:
   # Install ssh-agent if not already installed, it is required by Docker.
   - 'apt-get -qq update -y'
@@ -28,6 +25,7 @@ kinetic_catkin_build:
   image: ros:kinetic-robot
   stage: build
   script:
+    - apt-get -qq install ros-noetic-tf2-eigen sudo -y'
     - catkin build --summarize --no-status --force-color
     - catkin run_tests --no-status --force-color
 
