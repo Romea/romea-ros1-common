@@ -25,7 +25,7 @@ kinetic_catkin_build:
   image: ros:kinetic-robot
   stage: build
   script:
-    - apt-get -qq install ros-noetic-tf2-eigen sudo -y'
+    - apt-get -qq install ros-kinetic-tf2-eigen sudo -y'
     - catkin build --summarize --no-status --force-color
     - catkin run_tests --no-status --force-color
 
