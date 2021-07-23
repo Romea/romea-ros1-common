@@ -3,7 +3,7 @@ cache:
     - ccache/
 
 variables:
-  ROS_PACKAGES_TO_INSTALL: tf2_eigen #fix dependency for kinetic
+  ROS_PACKAGES_TO_INSTALL: tf2-eigen #fix dependency for kinetic
 
 before_script:
   # Install ssh-agent if not already installed, it is required by Docker.
