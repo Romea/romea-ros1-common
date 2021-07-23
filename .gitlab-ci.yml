@@ -1,6 +1,4 @@
-variables:
-  ROS_PACKAGES_TO_INSTALL: "tf2-eigen"
-  USE_ROSDEP: "true"
+
 
 cache:
   paths:
@@ -29,6 +27,9 @@ before_script:
 kinetic_catkin_build:
   image: ros:kinetic-robot
   stage: build
+  variables:
+    ROS_PACKAGES_TO_INSTALL: "tf2-eigen"
+    USE_ROSDEP: "true"
   script:
     - catkin build --summarize --no-status --force-color
     - catkin run_tests --no-status --force-color
