@@ -4,7 +4,6 @@ cache:
 
 variables:
   ROS_PACKAGES_TO_INSTALL: "tf2-eigen"
-  USE_ROSDEP: "true"
 
 before_script:
   # Install ssh-agent if not already installed, it is required by Docker.
@@ -23,6 +22,7 @@ before_script:
   - rm -rf ${CI_PROJECT_DIR}/../catkin_workspace/src >/dev/null 2>&1
   - git clone https://gitlab.com/VictorLamoine/ros_gitlab_ci.git
   - source ros_gitlab_ci/gitlab-ci.bash >/dev/null
+  - rosdep update
 
 # kinetic
 kinetic_catkin_build:
