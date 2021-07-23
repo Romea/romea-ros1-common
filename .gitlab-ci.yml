@@ -1,5 +1,6 @@
 variables:
   ROS_PACKAGES_TO_INSTALL: "tf2-eigen"
+  USE_ROSDEP: "true"
 
 cache:
   paths:
