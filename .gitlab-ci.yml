@@ -3,7 +3,7 @@ cache:
     - ccache/
 
 variables:
-  ROS_PACKAGES_TO_INSTALL: tf2-eigen
+  ROS_PACKAGES_TO_INSTALL: "tf2-eigen"
   USE_ROSDEP: "true"
 
 before_script:
