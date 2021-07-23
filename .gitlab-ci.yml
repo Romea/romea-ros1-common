@@ -1,4 +1,3 @@
-
 cache:
   paths:
     - ccache/
@@ -20,13 +19,14 @@ before_script:
   - rm -rf ${CI_PROJECT_DIR}/../catkin_workspace/src >/dev/null 2>&1
   - git clone https://gitlab.com/VictorLamoine/ros_gitlab_ci.git
   - source ros_gitlab_ci/gitlab-ci.bash >/dev/null
-  - rosdep update
+
 
 # kinetic
 kinetic_catkin_build:
   image: ros:kinetic-robot
   stage: build
   script:
+    - rosdep install --from-paths src --ignore-src -r -y --rosdistro kinetic
     - catkin build --summarize --no-status --force-color
     - catkin run_tests --no-status --force-color
 
