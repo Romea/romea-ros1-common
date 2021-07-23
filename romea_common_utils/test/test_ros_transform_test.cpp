@@ -5,7 +5,7 @@
 #include <ros/ros.h>
 
 //romea
-#include "romea_common_utils/conversions/TransformConversions.hpp"
+#include "romea_common_utils/conversions/transform_conversions.hpp"
 
 TEST(TestRosTransform, lookupTransformOnce)
 {

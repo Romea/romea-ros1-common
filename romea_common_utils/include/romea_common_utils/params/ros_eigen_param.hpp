@@ -2,7 +2,7 @@
 #define _romea_RosEigenParam_hpp_
 
 //ros
-#include "RosParam.hpp"
+#include "ros_param.hpp"
 
 //romea
 #include "romea_common/containers/Eigen/VectorOfEigenVector.hpp"

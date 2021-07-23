@@ -1,6 +1,6 @@
 //romea
-#include "romea_common_utils/conversions/TransformConversions.hpp"
-#include "romea_common_utils/conversions/GeometryConversions.hpp"
+#include "romea_common_utils/conversions/transform_conversions.hpp"
+#include "romea_common_utils/conversions/geometry_conversions.hpp"
 
 //ros
 #include <tf2_ros/transform_listener.h>

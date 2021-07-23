@@ -4,8 +4,8 @@
 #include <geometry_msgs/TransformStamped.h>
 
 //romea
-#include "../conversions/TimeConversions.hpp"
-#include "../conversions/TransformConversions.hpp"
+#include "../conversions/time_conversions.hpp"
+#include "../conversions/transform_conversions.hpp"
 
 namespace romea {
 

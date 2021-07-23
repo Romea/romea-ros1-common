@@ -6,8 +6,8 @@
 #include <diagnostic_msgs/DiagnosticArray.h>
 
 //romea
-#include "../conversions/TimeConversions.hpp"
-#include "../conversions/DiagnosticConversions.hpp"
+#include "../conversions/time_conversions.hpp"
+#include "../conversions/diagnostic_conversions.hpp"
 
 namespace romea
 {

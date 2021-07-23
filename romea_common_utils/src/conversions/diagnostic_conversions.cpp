@@ -1,4 +1,4 @@
-#include "romea_common_utils/conversions/DiagnosticConversions.hpp"
+#include "romea_common_utils/conversions/diagnostic_conversions.hpp"
 
 namespace
 {

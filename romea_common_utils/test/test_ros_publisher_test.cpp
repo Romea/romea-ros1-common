@@ -3,13 +3,13 @@
 
 //romea
 #include "test_ros_publisher_utils.hpp"
-#include "romea_common_utils/conversions/TransformConversions.hpp"
-#include "romea_common_utils/conversions/DiagnosticConversions.hpp"
-#include "romea_common_utils/publishers/MessagePublisher.hpp"
-#include "romea_common_utils/publishers/StampedMessagePublisher.hpp"
-#include "romea_common_utils/publishers/OdomPublisher.hpp"
-#include "romea_common_utils/publishers/TransformPublisher.hpp"
-#include "romea_common_utils/publishers/DiagnosticPublisher.hpp"
+#include "romea_common_utils/conversions/transform_conversions.hpp"
+#include "romea_common_utils/conversions/diagnostic_conversions.hpp"
+#include "romea_common_utils/publishers/message_publisher.hpp"
+#include "romea_common_utils/publishers/stamped_message_publisher.hpp"
+#include "romea_common_utils/publishers/odom_publisher.hpp"
+#include "romea_common_utils/publishers/transform_publisher.hpp"
+#include "romea_common_utils/publishers/diagnostic_publisher.hpp"
 
 
 TEST(TestRosPublisher, testMessagePublisher)

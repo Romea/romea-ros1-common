@@ -1,4 +1,4 @@
-#include "romea_common_utils/conversions/GeometryConversions.hpp"
+#include "romea_common_utils/conversions/geometry_conversions.hpp"
 
 namespace romea {
 

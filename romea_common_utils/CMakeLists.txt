@@ -28,10 +28,10 @@ catkin_package(
 #    SYSTEM ${romea_common_INCLUDE_DIRS})
 
 add_library(${PROJECT_NAME}
-  src/conversions/DiagnosticConversions.cpp
-  src/conversions/TimeConversions.cpp
-  src/conversions/GeometryConversions.cpp
-  src/conversions/TransformConversions.cpp)
+  src/conversions/diagnostic_conversions.cpp
+  src/conversions/time_conversions.cpp
+  src/conversions/geometry_conversions.cpp
+  src/conversions/transform_conversions.cpp)
 
 target_include_directories( ${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

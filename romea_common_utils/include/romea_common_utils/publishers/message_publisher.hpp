@@ -1,6 +1,8 @@
+#ifndef _romea_MessagePublisher_hpp_
+#define _romea_MessagePublisher_hpp_
+
 //ros
 #include <ros/ros.h>
-#include "../conversions/TimeConversions.hpp"
 
 namespace romea {
 
@@ -68,3 +70,5 @@ void MessagePublisher<DataType,MessageType>::publish(const DataType &data)
 }
 
 }
+
+#endif
