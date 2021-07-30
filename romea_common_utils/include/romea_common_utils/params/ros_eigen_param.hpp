@@ -34,7 +34,7 @@ inline EigenVector loadEigenVector(const ros::NodeHandle &nodeHandle,
                                    const std::string &paramName)
 {
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
-  return EigenVector(loadVector<typename EigenVector::Scalar>(nodeHandle,resolvedParamName).data());
+  return EigenVector(load_vector<typename EigenVector::Scalar>(nodeHandle,resolvedParamName).data());
 }
 
 ////-----------------------------------------------------------------------------

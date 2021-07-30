@@ -37,7 +37,7 @@ TEST(TestRosParams, loadGeodeticCoordinate)
   ros::NodeHandle private_nh("~");
   romea::GeodeticCoordinates geodetic_coordinates;
 
-  EXPECT_NO_THROW({geodetic_coordinates=romea::loadGeodeticCoordinates(private_nh,"geodetic");});
+  EXPECT_NO_THROW({geodetic_coordinates=romea::load_geodetic_coordinates(private_nh,"geodetic");});
 
   EXPECT_NEAR(geodetic_coordinates.getLatitude(),45.85207/180.*M_PI,0.000001);
   EXPECT_NEAR(geodetic_coordinates.getLongitude(),3.16482/180.*M_PI,0.000001);
@@ -49,7 +49,7 @@ TEST(TestRosParams, loadMapFloat)
   ros::NodeHandle private_nh("~");
   std::map<std::string,double> map ;
 
-  EXPECT_NO_THROW({map=romea::loadMap<double>(private_nh,"map_float");});
+  EXPECT_NO_THROW({map=romea::load_map<double>(private_nh,"map_float");});
   EXPECT_DOUBLE_EQ(map["foo"],0.34);
   EXPECT_DOUBLE_EQ(map["bar"],-2.7);
   EXPECT_DOUBLE_EQ(map["baz"],5.5);
@@ -59,7 +59,7 @@ TEST(TestRosParams, loadUnavailableMap)
 {
   ros::NodeHandle private_nh("~");
   std::map<std::string,double> map ;
-  EXPECT_THROW({map=romea::loadMap<double>(private_nh,"unavailable_float");},std::runtime_error);
+  EXPECT_THROW({map=romea::load_map<double>(private_nh,"unavailable_float");},std::runtime_error);
 }
 
 

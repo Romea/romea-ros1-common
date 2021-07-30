@@ -13,7 +13,7 @@
 namespace romea {
 
 //-----------------------------------------------------------------------------
-inline std::string searchParam(const ros::NodeHandle &nodeHandle,const std::string &paramName)
+inline std::string search_param(const ros::NodeHandle &nodeHandle,const std::string &paramName)
 {
   std::string result;
   if(!nodeHandle.searchParam(paramName,result))
@@ -25,7 +25,7 @@ inline std::string searchParam(const ros::NodeHandle &nodeHandle,const std::stri
 
 //-----------------------------------------------------------------------------
 template <typename T>
-inline T loadParam(const ros::NodeHandle &nodeHandle,
+inline T load_param(const ros::NodeHandle &nodeHandle,
                    const std::string &paramName)
 {
   T value;
@@ -39,7 +39,7 @@ inline T loadParam(const ros::NodeHandle &nodeHandle,
 
 //-----------------------------------------------------------------------------
 template <typename T>
-inline std::vector<T> loadVector(const ros::NodeHandle &nodeHandle,
+inline std::vector<T> load_vector(const ros::NodeHandle &nodeHandle,
                                  const std::string &paramName)
 {
   std::vector<T> vector;
@@ -53,7 +53,7 @@ inline std::vector<T> loadVector(const ros::NodeHandle &nodeHandle,
 
 //-----------------------------------------------------------------------------
 template <typename T>
-inline std::map<std::string,T> loadMap(const ros::NodeHandle &nodeHandle,
+inline std::map<std::string,T> load_map(const ros::NodeHandle &nodeHandle,
                                        const std::string &paramName)
 {
 
@@ -85,7 +85,7 @@ inline std::map<std::string,T> loadMap(const ros::NodeHandle &nodeHandle,
 
 
 //-----------------------------------------------------------------------------
-inline bool loadGeodeticCoordinates(const ros::NodeHandle &nodeHandle,
+inline bool load_geodetic_coordinates(const ros::NodeHandle &nodeHandle,
                                     const std::string &paramName,
                                     GeodeticCoordinates & coordinates)
 {
@@ -102,11 +102,11 @@ inline bool loadGeodeticCoordinates(const ros::NodeHandle &nodeHandle,
 }
 
 //-----------------------------------------------------------------------------
-inline GeodeticCoordinates loadGeodeticCoordinates(const ros::NodeHandle &nodeHandle,
+inline GeodeticCoordinates load_geodetic_coordinates(const ros::NodeHandle &nodeHandle,
                                                    const std::string &paramName)
 {
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
-  std::vector<double> vector = loadVector<double>(nodeHandle,resolvedParamName);
+  std::vector<double> vector = load_vector<double>(nodeHandle,resolvedParamName);
   return GeodeticCoordinates(vector[0]/180.*M_PI,vector[1]/180.*M_PI,vector[2]);
 }
 
