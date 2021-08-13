@@ -8,6 +8,25 @@
 #include "romea_common_utils/params/ros_param.hpp"
 #include "romea_common_utils/params/ros_eigen_param.hpp"
 
+
+TEST(TestRosParams, loadParam)
+{
+  ros::NodeHandle private_nh("~");
+  EXPECT_STREQ(romea::load_param<std::string>(private_nh,"load_param").c_str(),"foo");
+}
+
+TEST(TestRosParams, loadParamOrWhenValueIsAvailable)
+{
+  ros::NodeHandle private_nh("~");
+  EXPECT_STREQ(romea::load_param_or<std::string>(private_nh,"load_param_or","bar").c_str(),"foo");
+}
+
+TEST(TestRosParams, loadParamOrWhenValueIsUnavailable)
+{
+  ros::NodeHandle private_nh("~");
+  EXPECT_STREQ(romea::load_param_or<std::string>(private_nh,"unavailable_param","bar").c_str(),"bar");
+}
+
 TEST(TestRosParams, loadVector3d)
 {
   ros::NodeHandle private_nh("~");

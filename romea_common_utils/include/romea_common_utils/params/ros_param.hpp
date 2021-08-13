@@ -39,6 +39,15 @@ inline T load_param(const ros::NodeHandle &nodeHandle,
 
 //-----------------------------------------------------------------------------
 template <typename T>
+inline T load_param_or(const ros::NodeHandle &nodeHandle,
+                       const std::string &paramName,
+                       const T & default_value)
+{
+  return nodeHandle.param<T>(paramName,default_value);
+}
+
+//-----------------------------------------------------------------------------
+template <typename T>
 inline std::vector<T> load_vector(const ros::NodeHandle &nodeHandle,
                                  const std::string &paramName)
 {
