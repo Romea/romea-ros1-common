@@ -4,9 +4,13 @@
 //ros
 #include <geometry_msgs/Vector3.h>
 #include <geometry_msgs/Quaternion.h>
+#include <romea_common_msgs/PoseAndTwist2DStamped.h>
 
 //eigen
 #include <Eigen/Geometry>
+
+//romea
+
 
 
 namespace romea
@@ -29,6 +33,11 @@ void toRomea(const geometry_msgs::Quaternion & quaternion_msg,
 
 void toRosMsg(const Eigen::Matrix3d & eigen_rotation_matrix,
               geometry_msgs::Quaternion &quaternion_msg);
+
+
+void toRomea(const romea_common_msgs::Pose2D & position_msg,
+             Eigen::Vector3d & eigen_position);
+
 
 }
 

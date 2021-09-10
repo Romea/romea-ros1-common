@@ -9,7 +9,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #######################
 ## Find dependencies ##
 #######################
-find_package(catkin REQUIRED COMPONENTS roscpp tf2_ros tf2_eigen nav_msgs diagnostic_updater)
+find_package(catkin REQUIRED COMPONENTS
+ roscpp
+ tf2_ros
+ tf2_eigen
+ nav_msgs
+ romea_common_msgs
+ diagnostic_updater
+ rviz_visual_tools)
+
 find_package(romea_common REQUIRED)
 
 ###################################
@@ -34,7 +42,16 @@ add_library(${PROJECT_NAME}
   src/conversions/diagnostic_conversions.cpp
   src/conversions/time_conversions.cpp
   src/conversions/geometry_conversions.cpp
-  src/conversions/transform_conversions.cpp)
+  src/conversions/transform_conversions.cpp
+  src/conversions/pose2d_conversions.cpp
+  src/conversions/pose3d_conversions.cpp
+  src/conversions/pose_and_twist2d_conversions.cpp
+  src/conversions/pose_and_twist3d_conversions.cpp
+  src/conversions/position2d_conversions.cpp
+  src/conversions/twist2d_conversions.cpp
+  src/conversions/twist3d_conversions.cpp
+  src/rviz_display.cpp
+  )
 
 target_include_directories( ${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
