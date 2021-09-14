@@ -18,7 +18,11 @@ inline std::string search_param(const ros::NodeHandle &nodeHandle,const std::str
   std::string result;
   if(!nodeHandle.searchParam(paramName,result))
   {
-    throw(std::runtime_error("Failed to find "+ paramName +" from param server"));
+    std::stringstream msg;
+    msg << "Failed to find ";
+    msg << paramName;
+    msg << " from param server";
+    throw(std::runtime_error(msg.str()));
   }
   return result;
 }
@@ -32,7 +36,11 @@ inline T load_param(const ros::NodeHandle &nodeHandle,
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
   if(!nodeHandle.getParam(resolvedParamName,value))
   {
-    throw(std::runtime_error("Failed to read "+ resolvedParamName +" from param server"));
+    std::stringstream msg;
+    msg << "Failed to load ";
+    msg << resolvedParamName;
+    msg << " from param server";
+    throw(std::runtime_error(msg.str()));
   }
   return value;
 }
@@ -55,7 +63,11 @@ inline std::vector<T> load_vector(const ros::NodeHandle &nodeHandle,
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
   if(!nodeHandle.getParam(resolvedParamName,vector))
   {
-    throw(std::runtime_error("Failed to read "+ resolvedParamName +" from param server"));
+    std::stringstream msg;
+    msg << "Failed to read ";
+    msg << resolvedParamName;
+    msg << " from param server";
+    throw(std::runtime_error(msg.str()));
   }
   return vector;
 }
@@ -70,22 +82,33 @@ inline std::map<std::string,T> load_map(const ros::NodeHandle &nodeHandle,
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
   if(!nodeHandle.getParam(resolvedParamName,xml_rpc_map))
   {
-    throw(std::runtime_error("Failed to read "+ resolvedParamName +" from param server"));
+    std::stringstream msg;
+    msg << "Failed to read ";
+    msg << resolvedParamName;
+    msg << " from param server";
+    throw(std::runtime_error(msg.str()));
   }
 
   //  xml_map.getType() TypeStruct
 
   std::map<std::string,T> map;
   XmlRpc::XmlRpcValue::ValueStruct::const_iterator it;
-  for(it = xml_rpc_map.begin() ; it != xml_rpc_map.end(); ++it)
+  for(const auto & [key,value] : xml_rpc_map)
   {
-    if(map.find(it->first)==map.end())
+    //c++20 replace by ! map.contains(key)
+    if(map.find(key)==map.end())
     {
-      map.emplace(it->first,XmlRpc::XmlRpcValue(it->second));
+      map.emplace(key,XmlRpc::XmlRpcValue(value));
     }
     else
     {
-      throw(std::runtime_error("Key "+it->first+ "is already exist cannot load map "+resolvedParamName+ " from param server"));
+      std::stringstream msg;
+      msg << "Key ";
+      msg << key;
+      msg << "is already exist cannot load map";
+      msg << resolvedParamName;
+      msg << " from param server";
+      throw(std::runtime_error(msg.str()));
     }
   }
 

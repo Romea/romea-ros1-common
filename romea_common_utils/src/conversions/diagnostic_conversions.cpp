@@ -26,11 +26,11 @@ void toRosDiagnosticMsg(const std::string & diagnoctic_name,
     }
   }
 
-  for(const auto & p : report.info)
+  for(const auto & [info_name,info_status] : report.info)
   {
     diagnostic_msgs::KeyValue key;
-    key.key=p.first;
-    key.value=p.second;
+    key.key=info_name;
+    key.value=info_status;
     msg.values.push_back(key);
   }
 }
