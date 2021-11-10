@@ -58,9 +58,9 @@ TEST(TestRosParams, loadGeodeticCoordinate)
 
   EXPECT_NO_THROW({geodetic_coordinates=romea::load_geodetic_coordinates(private_nh,"geodetic");});
 
-  EXPECT_NEAR(geodetic_coordinates.getLatitude(),45.85207/180.*M_PI,0.000001);
-  EXPECT_NEAR(geodetic_coordinates.getLongitude(),3.16482/180.*M_PI,0.000001);
-  EXPECT_NEAR(geodetic_coordinates.getAltitude(),300.0,0.000001);
+  EXPECT_NEAR(geodetic_coordinates.latitude,45.85207/180.*M_PI,0.000001);
+  EXPECT_NEAR(geodetic_coordinates.longitude,3.16482/180.*M_PI,0.000001);
+  EXPECT_NEAR(geodetic_coordinates.altitude,300.0,0.000001);
 }
 
 TEST(TestRosParams, loadMapFloat)
