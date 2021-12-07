@@ -18,7 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
  diagnostic_updater
  rviz_visual_tools)
 
-find_package(romea_common REQUIRED)
+find_package(romea_core_common REQUIRED)
 
 ###################################
 ## catkin specific configuration ##
@@ -60,12 +60,12 @@ target_include_directories( ${PROJECT_NAME} PUBLIC
 
 target_include_directories( ${PROJECT_NAME} SYSTEM PUBLIC
   ${catkin_INCLUDE_DIRS}
-  ${romea_common_INCLUDE_DIRS}
+  ${romea_core_common_INCLUDE_DIRS}
   )
 
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
-  romea_common::romea_common)
+  romea_core_common::romea_core_common)
 
 
 #############

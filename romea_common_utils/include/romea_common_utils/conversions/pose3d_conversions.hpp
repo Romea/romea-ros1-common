@@ -5,8 +5,8 @@
 #include <string>
 
 //romea
-#include <romea_common/time/Time.hpp>
-#include <romea_common/geometry/Pose3D.hpp>
+#include <romea_core_common/time/Time.hpp>
+#include <romea_core_common/geometry/Pose3D.hpp>
 
 //ros
 #include <geometry_msgs/TransformStamped.h>

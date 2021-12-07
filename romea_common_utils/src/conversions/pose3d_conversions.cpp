@@ -1,7 +1,7 @@
 //romea
 #include "romea_common_utils/conversions/pose3d_conversions.hpp"
 #include <romea_common_utils/conversions/time_conversions.hpp>
-#include <romea_common/math/EulerAngles.hpp>
+#include <romea_core_common/math/EulerAngles.hpp>
 
 //ros
 #include <eigen_conversions/eigen_msg.h>

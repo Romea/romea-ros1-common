@@ -5,8 +5,8 @@
 #include <string>
 
 //romea
-#include <romea_common/time/Time.hpp>
-#include <romea_common/geometry/PoseAndTwist3D.hpp>
+#include <romea_core_common/time/Time.hpp>
+#include <romea_core_common/geometry/PoseAndTwist3D.hpp>
 #include "pose3d_conversions.hpp"
 #include "twist3d_Conversions.hpp"
 

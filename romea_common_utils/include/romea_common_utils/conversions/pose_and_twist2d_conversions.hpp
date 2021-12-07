@@ -2,7 +2,7 @@
 #define _romea_PoseAndTwist2DConversions_hpp_
 
 //romea
-#include <romea_common/geometry/PoseAndTwist2D.hpp>
+#include <romea_core_common/geometry/PoseAndTwist2D.hpp>
 #include "pose2d_conversions.hpp"
 #include "twist2d_conversions.hpp"
 

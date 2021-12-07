@@ -3,7 +3,7 @@
 #include "test_utils.hpp"
 
 //romea
-#include <romea_common/math/EulerAngles.hpp>
+#include <romea_core_common/math/EulerAngles.hpp>
 #include "romea_common_utils/conversions/pose3d_conversions.hpp"
 
 //-----------------------------------------------------------------------------

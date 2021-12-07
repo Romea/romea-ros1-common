@@ -5,7 +5,7 @@
 #include "ros_param.hpp"
 
 //romea
-#include "romea_common/containers/Eigen/VectorOfEigenVector.hpp"
+#include "romea_core_common/containers/Eigen/VectorOfEigenVector.hpp"
 
 namespace romea {
 

@@ -5,8 +5,8 @@
 #include <string>
 
 //romea
-#include <romea_common/time/Time.hpp>
-#include <romea_common/geometry/Position2D.hpp>
+#include <romea_core_common/time/Time.hpp>
+#include <romea_core_common/geometry/Position2D.hpp>
 
 //romea_ros_msg
 #include <romea_common_msgs/Position2D.h>

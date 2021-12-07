@@ -2,7 +2,7 @@
 #define _romea_Twist2DConversions_hpp_
 
 //romea
-#include <romea_common/geometry/Twist2D.hpp>
+#include <romea_core_common/geometry/Twist2D.hpp>
 
 //romea_ros_msg
 #include <romea_common_msgs/Twist2DStamped.h>

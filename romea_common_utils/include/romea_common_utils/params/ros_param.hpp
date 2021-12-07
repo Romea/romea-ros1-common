@@ -5,7 +5,7 @@
 #include <ros/ros.h>
 
 //romea
-#include <romea_common/geodesy/GeodeticCoordinates.hpp>
+#include <romea_core_common/geodesy/GeodeticCoordinates.hpp>
 
 //std
 #include <exception>

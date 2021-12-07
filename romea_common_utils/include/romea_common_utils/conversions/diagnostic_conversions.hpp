@@ -1,7 +1,7 @@
 #ifndef _romea_DiagnosticConversions_hpp_
 #define _romea_DiagnosticConversions_hpp_
 
-#include <romea_common/diagnostic/DiagnosticReport.hpp>
+#include <romea_core_common/diagnostic/DiagnosticReport.hpp>
 #include <diagnostic_msgs/DiagnosticArray.h>
 
 namespace romea

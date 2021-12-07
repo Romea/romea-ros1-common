@@ -5,8 +5,8 @@
 #include <rviz_visual_tools/rviz_visual_tools.h>
 
 //romea
-#include <romea_common/geometry/Pose2D.hpp>
-#include <romea_common/geometry/Position2D.hpp>
+#include <romea_core_common/geometry/Pose2D.hpp>
+#include <romea_core_common/geometry/Position2D.hpp>
 
 namespace romea
 {
