@@ -50,6 +50,7 @@ add_library(${PROJECT_NAME}
   src/conversions/position2d_conversions.cpp
   src/conversions/twist2d_conversions.cpp
   src/conversions/twist3d_conversions.cpp
+  src/pid_factory.cpp
   src/rviz_display.cpp
   )
 
