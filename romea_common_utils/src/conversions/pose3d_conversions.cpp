@@ -40,7 +40,7 @@ void toRosTransformMsg(const ros::Time &stamp,
 }
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const Pose3D & romea_pose_3d,
+void to_ros_msg(const Pose3D & romea_pose_3d,
               geometry_msgs::PoseWithCovariance & ros_pose_msg)
 {
   const auto & position =romea_pose_3d.position;
@@ -66,18 +66,18 @@ void toRosMsg(const Pose3D & romea_pose_3d,
 }
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const ros::Time & stamp,
+void to_ros_msg(const ros::Time & stamp,
               const std::string & frame_id,
               const Pose3D & romea_pose_3d,
               geometry_msgs::PoseWithCovarianceStamped & ros_pose_msg)
 {
   ros_pose_msg.header.stamp=stamp;
   ros_pose_msg.header.frame_id=frame_id;
-  toRosMsg(romea_pose_3d,ros_pose_msg.pose);
+  to_ros_msg(romea_pose_3d,ros_pose_msg.pose);
 }
 
 //-----------------------------------------------------------------------------
-void toRomea(const geometry_msgs::PoseWithCovariance & ros_pose_msg,
+void to_romea(const geometry_msgs::PoseWithCovariance & ros_pose_msg,
              Pose3D & romea_pose_3d)
 {
   romea_pose_3d.position.x()=ros_pose_msg.pose.position.x;
@@ -94,10 +94,10 @@ void toRomea(const geometry_msgs::PoseWithCovariance & ros_pose_msg,
 }
 
 //-----------------------------------------------------------------------------
-Pose3D toRomea(const geometry_msgs::PoseWithCovariance & ros_pose_msg)
+Pose3D to_romea(const geometry_msgs::PoseWithCovariance & ros_pose_msg)
 {
   Pose3D romea_pose_3d;
-  toRomea(ros_pose_msg,romea_pose_3d);
+  to_romea(ros_pose_msg,romea_pose_3d);
   return romea_pose_3d;
 }
 

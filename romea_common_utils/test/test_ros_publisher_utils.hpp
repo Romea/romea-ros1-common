@@ -9,13 +9,13 @@
 #include <geometry_msgs/PointStamped.h>
 #include <tf2_ros/transform_listener.h>
 
-inline void toRosMsg(const std::string & data,
+inline void to_ros_msg(const std::string & data,
                      std_msgs::String & msg)
 {
   msg.data=data;
 }
 
-inline void toRosOdomMsg(const ros::Time & t,
+inline void to_ros_odom_msg(const ros::Time & t,
                          const nav_msgs::Odometry & data,
                          const std::string & frame_id,
                          const std::string & child_frame_id,
@@ -28,7 +28,7 @@ inline void toRosOdomMsg(const ros::Time & t,
   msg.twist=data.twist;
 }
 
-inline void toRosMsg(const ros::Time & stamp,
+inline void to_ros_msg(const ros::Time & stamp,
                      const std::string & frame_id,
                      const Eigen::Vector3d & data,
                      geometry_msgs::PointStamped & msg)

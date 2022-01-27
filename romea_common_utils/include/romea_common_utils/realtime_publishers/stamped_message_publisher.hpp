@@ -85,7 +85,7 @@ void RealtimeStampedMessagePublisher<DataType,MessageType>::publish(const ros::T
 {
   if(pub_->trylock())
   {
-      toRosMsg(stamp,frame_id_,data,pub_->msg_);
+      to_ros_msg(stamp,frame_id_,data,pub_->msg_);
       pub_->unlockAndPublish();
   }
 }
@@ -95,7 +95,7 @@ template <class DataType, class MessageType>
 void RealtimeStampedMessagePublisher<DataType,MessageType>::publish(const romea::Duration & duration,
                                                                     const DataType & data)
 {
-  publish(toROSTime(duration),data);
+  publish(to_ros_time(duration),data);
 }
 
 }

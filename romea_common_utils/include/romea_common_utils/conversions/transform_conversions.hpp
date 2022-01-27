@@ -10,7 +10,7 @@
 
 namespace romea {
 
-void toRomea(const geometry_msgs::Transform & tranform_msg,
+void to_romea(const geometry_msgs::Transform & tranform_msg,
              Eigen::Affine3d &eigen_transform);
 
 void toRosTransformMsg(const Eigen::Affine3d &eigen_transform,

@@ -17,18 +17,18 @@ namespace romea
 {
 
 
-void toRosMsg(const PoseAndTwist2D & romea_pose_and_twist2d,
-              romea_common_msgs::PoseAndTwist2D & ros_pose_and_twist2d_msg);
+void to_ros_msg(const PoseAndTwist2D & romea_pose_and_twist2d,
+                romea_common_msgs::PoseAndTwist2D & ros_pose_and_twist2d_msg);
 
-void toRosMsg(const ros::Time & stamp,
-              const std::string & frame_id,
-              const PoseAndTwist2D & romea_pose_and_twist2d,
-              romea_common_msgs::PoseAndTwist2DStamped & ros_pose_and_twist2d_msg_stamped);
+void to_ros_msg(const ros::Time & stamp,
+                const std::string & frame_id,
+                const PoseAndTwist2D & romea_pose_and_twist2d,
+                romea_common_msgs::PoseAndTwist2DStamped & ros_pose_and_twist2d_msg_stamped);
 
-PoseAndTwist2D toRomea(const romea_common_msgs::PoseAndTwist2D &ros_pose_and_twist2d_msg);
+PoseAndTwist2D to_romea(const romea_common_msgs::PoseAndTwist2D &ros_pose_and_twist2d_msg);
 
-void toRomea(const romea_common_msgs::PoseAndTwist2D &ros_pose_and_twist2d_msg,
-             PoseAndTwist2D & romea_pose_and_twist2d);
+void to_romea(const romea_common_msgs::PoseAndTwist2D &ros_pose_and_twist2d_msg,
+              PoseAndTwist2D & romea_pose_and_twist2d);
 
 
 }

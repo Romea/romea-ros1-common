@@ -101,7 +101,7 @@ template <class DataType>
 void DiagnosticPublisher<DataType>::publish(const Duration & duration,
                                             const DataType &data)
 {
-  publish(toROSTime(duration),data);
+  publish(to_ros_time(duration),data);
 
 }
 
@@ -126,7 +126,7 @@ void DiagnosticPublisher<DataType>::publish_(const ros::Time & stamp,
   boost::shared_ptr<DiagnosticArray> msg(new DiagnosticArray());
   msg->header.stamp=stamp;
   msg->status.push_back(diagnostic_msgs::DiagnosticStatus());
-  toRosDiagnosticMsg(diagnostic_name_,hardware_id_,data,msg->status.back());
+  to_ros_diagnostic_msg(diagnostic_name_,hardware_id_,data,msg->status.back());
   pub_.publish(msg);
 }
 

@@ -3,13 +3,13 @@
 namespace romea {
 
 //-----------------------------------------------------------------------------
-ros::Time toROSTime(const Duration & duration)
+ros::Time to_ros_time(const Duration & duration)
 {
   return ros::Time(durationToSecond(duration));
 }
 
 //-----------------------------------------------------------------------------
-Duration toRomeaDuration(const ros::Time & time)
+Duration to_romea_duration(const ros::Time & time)
 {
   return Duration(time.toNSec());
 }

@@ -7,8 +7,8 @@ namespace romea
 {
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const Pose2D & romea_pose2d,
-              romea_common_msgs::Pose2D & ros_pose2d_msg)
+void to_ros_msg(const Pose2D & romea_pose2d,
+                romea_common_msgs::Pose2D & ros_pose2d_msg)
 {
   ros_pose2d_msg.position.x = romea_pose2d.position.x();
   ros_pose2d_msg.position.y = romea_pose2d.position.y();
@@ -22,14 +22,14 @@ void toRosMsg(const Pose2D & romea_pose2d,
 }
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const ros::Time &stamp,
-              const std::string & frame_id,
-              const Pose2D & romea_pose2d,
-              romea_common_msgs::Pose2DStamped & ros_pose2d_stamped_msg)
+void to_ros_msg(const ros::Time &stamp,
+                const std::string & frame_id,
+                const Pose2D & romea_pose2d,
+                romea_common_msgs::Pose2DStamped & ros_pose2d_stamped_msg)
 {
   ros_pose2d_stamped_msg.header.frame_id=frame_id;
   ros_pose2d_stamped_msg.header.stamp = stamp;
-  toRosMsg(romea_pose2d,ros_pose2d_stamped_msg.pose);
+  to_ros_msg(romea_pose2d,ros_pose2d_stamped_msg.pose);
 }
 
 //-----------------------------------------------------------------------------
@@ -63,8 +63,8 @@ void toRosTransformMsg(const ros::Time &stamp,
 
 
 //-----------------------------------------------------------------------------
-void toRomea(const romea_common_msgs::Pose2D &msg,
-             Pose2D & romea_pose_2d)
+void to_romea(const romea_common_msgs::Pose2D &msg,
+              Pose2D & romea_pose_2d)
 {
   romea_pose_2d.position.x()=msg.position.x;
   romea_pose_2d.position.y()=msg.position.y;
@@ -73,21 +73,21 @@ void toRomea(const romea_common_msgs::Pose2D &msg,
 }
 
 //-----------------------------------------------------------------------------
-Pose2D toRomea(const romea_common_msgs::Pose2D &msg)
+Pose2D to_romea(const romea_common_msgs::Pose2D &msg)
 {
   Pose2D romea_pose_2d;
-  toRomea(msg,romea_pose_2d);
+  to_romea(msg,romea_pose_2d);
   return romea_pose_2d;
 }
 
 ////-----------------------------------------------------------------------------
-//void toRomea(const romea_common_msgs::Pose2DStamped &msg,
+//void to_romea(const romea_common_msgs::Pose2DStamped &msg,
 //             Pose2D::Stamped & romea_pose_2d_stamped,
 //             std::string & frame_id)
 //{
 //  frame_id = msg.header.frame_id;
-//  toRomea(msg.pose,romea_pose_2d_stamped.data);
-//  romea_pose_2d_stamped.stamp=toRomeaDuration(msg.header.stamp);
+//  to_romea(msg.pose,romea_pose_2d_stamped.data);
+//  romea_pose_2d_stamped.stamp=to_romea_duration(msg.header.stamp);
 //}
 
 }// namespace

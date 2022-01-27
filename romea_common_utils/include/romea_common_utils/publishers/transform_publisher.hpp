@@ -96,7 +96,7 @@ template <class DataType>
 void TransformPublisher<DataType>::publish(const romea::Duration & duration,
                                            const DataType & data)
 {
-  publish(toROSTime(duration),data);
+  publish(to_ros_time(duration),data);
 }
 
 }

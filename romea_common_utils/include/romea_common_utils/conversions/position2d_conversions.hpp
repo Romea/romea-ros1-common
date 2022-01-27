@@ -16,19 +16,19 @@ namespace romea
 {
 
 
-void toRosMsg(const Position2D & romea_position2d,
+void to_ros_msg(const Position2D & romea_position2d,
               romea_common_msgs::Position2D & ros_position2d_msg);
 
-void toRosMsg(const ros::Time & stamp,
+void to_ros_msg(const ros::Time & stamp,
               const std::string & frame_id,
               const Position2D & position2D,
               romea_common_msgs::Position2DStamped & ros_position2d_stamped);
 
 
-void toRomea(const romea_common_msgs::Position2D &msg,
+void to_romea(const romea_common_msgs::Position2D &msg,
              Position2D & position2d);
 
-Position2D toRomea(const romea_common_msgs::Position2D &msg);
+Position2D to_romea(const romea_common_msgs::Position2D &msg);
 
 }// namespace
 

@@ -24,7 +24,7 @@ public :
     romea_twist2d.linearSpeeds.y()=2;
     romea_twist2d.angularSpeed=3;
     fillEigenCovariance(romea_twist2d.covariance);
-    romea::toRosMsg(stamp,frame_id,romea_twist2d,ros_twist2d_msg);
+    romea::to_ros_msg(stamp,frame_id,romea_twist2d,ros_twist2d_msg);
   }
 
   ros::Time stamp;
@@ -34,7 +34,7 @@ public :
 };
 
 //-----------------------------------------------------------------------------
-TEST_F(TestTwist2DConversion, fromRomeatoRosMsg)
+TEST_F(TestTwist2DConversion, fromRomeaToRosMsg)
 {
   EXPECT_EQ(ros_twist2d_msg.header.stamp.toNSec(),stamp.toNSec());
   EXPECT_STREQ(ros_twist2d_msg.header.frame_id.c_str(),frame_id.c_str());
@@ -45,9 +45,9 @@ TEST_F(TestTwist2DConversion, fromRomeatoRosMsg)
 }
 
 //-----------------------------------------------------------------------------
-TEST_F(TestTwist2DConversion, fromRosMsgtoRomea)
+TEST_F(TestTwist2DConversion, fromRosMsgto_romea)
 {
-  romea::Twist2D romea_tsist2d_bis = romea::toRomea(ros_twist2d_msg.twist);
+  romea::Twist2D romea_tsist2d_bis = romea::to_romea(ros_twist2d_msg.twist);
 
   EXPECT_DOUBLE_EQ(romea_tsist2d_bis.linearSpeeds.x(),romea_twist2d.linearSpeeds.x());
   EXPECT_DOUBLE_EQ(romea_tsist2d_bis.linearSpeeds.y(),romea_twist2d.linearSpeeds.y());

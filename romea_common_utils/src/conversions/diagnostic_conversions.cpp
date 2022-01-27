@@ -9,10 +9,10 @@ namespace romea
 {
 
 //-----------------------------------------------------------------------------
-void toRosDiagnosticMsg(const std::string & diagnoctic_name,
-                        const std::string & hardware_id,
-                        const DiagnosticReport & report,
-                        diagnostic_msgs::DiagnosticStatus & msg)
+void to_ros_diagnostic_msg(const std::string & diagnoctic_name,
+                           const std::string & hardware_id,
+                           const DiagnosticReport & report,
+                           diagnostic_msgs::DiagnosticStatus & msg)
 {
   msg.level=static_cast<int>(worseStatus(report.diagnostics));
   msg.hardware_id=hardware_id;

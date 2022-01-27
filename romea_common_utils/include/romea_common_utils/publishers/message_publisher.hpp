@@ -65,7 +65,7 @@ template <class DataType, class MessageType>
 void MessagePublisher<DataType,MessageType>::publish(const DataType &data)
 {
   boost::shared_ptr<MessageType> msg(new MessageType());
-  toRosMsg(data,*msg.get());
+  to_ros_msg(data,*msg.get());
   pub_.publish(msg);
 }
 

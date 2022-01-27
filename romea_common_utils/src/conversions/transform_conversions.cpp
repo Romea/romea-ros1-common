@@ -9,7 +9,7 @@
 namespace romea {
 
 //-----------------------------------------------------------------------------
-void toRomea(const geometry_msgs::Transform & tranform_msg,
+void to_romea(const geometry_msgs::Transform & tranform_msg,
              Eigen::Affine3d &eigen_transform)
 {
   eigen_transform.translation() =Eigen::Vector3d(tranform_msg.translation.x,
@@ -28,8 +28,8 @@ void toRomea(const geometry_msgs::Transform & tranform_msg,
 void toRosTransformMsg(const Eigen::Affine3d &eigen_transform,
                        geometry_msgs::Transform & tranform_msg)
 {
-  toRosMsg(eigen_transform.translation(),tranform_msg.translation);
-  toRosMsg(eigen_transform.linear(),tranform_msg.rotation);
+  to_ros_msg(eigen_transform.translation(),tranform_msg.translation);
+  to_ros_msg(eigen_transform.linear(),tranform_msg.rotation);
 }
 
 //-----------------------------------------------------------------------------

@@ -10,18 +10,18 @@
 namespace romea
 {
 
-void toRosMsg(const Twist2D & romea_twist_2d,
+void to_ros_msg(const Twist2D & romea_twist_2d,
               romea_common_msgs::Twist2D & ros_twist2d_msg);
 
-void toRosMsg(const ros::Time & stamp,
+void to_ros_msg(const ros::Time & stamp,
               const std::string & frame_id,
               const Twist2D & romea_twist_2d,
               romea_common_msgs::Twist2DStamped & ros_twist2d_msg);
 
-void toRomea(const romea_common_msgs::Twist2D & ros_twist2d_msg,
+void to_romea(const romea_common_msgs::Twist2D & ros_twist2d_msg,
              Twist2D & romea_twist2d);
 
-Twist2D toRomea(const romea_common_msgs::Twist2D & ros_twist2d_msg);
+Twist2D to_romea(const romea_common_msgs::Twist2D & ros_twist2d_msg);
 
 }// namespace
 

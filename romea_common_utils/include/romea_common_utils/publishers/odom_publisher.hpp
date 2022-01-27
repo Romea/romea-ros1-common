@@ -90,7 +90,7 @@ template <class DataType>
 void OdomPublisher<DataType>::publish(const Duration & duration,
                                       const DataType &data)
 {
-  publish(toROSTime(duration),data);
+  publish(to_ros_time(duration),data);
 }
 
 //-----------------------------------------------------------------------------
@@ -99,7 +99,7 @@ void OdomPublisher<DataType>::publish(const ros::Time & stamp,
                                       const DataType &data)
 {
   boost::shared_ptr<nav_msgs::Odometry> msg(new nav_msgs::Odometry());
-  toRosOdomMsg(stamp,data,frame_id_,child_frame_id_,*msg.get());
+  to_ros_odom_msg(stamp,data,frame_id_,child_frame_id_,*msg.get());
   pub_.publish(msg);
 }
 

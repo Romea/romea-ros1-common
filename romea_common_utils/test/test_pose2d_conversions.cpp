@@ -24,7 +24,7 @@ public :
     romea_pose2d.position.y()=2;
     romea_pose2d.yaw=3;
     fillEigenCovariance(romea_pose2d.covariance);
-    romea::toRosMsg(stamp,frame_id,romea_pose2d,ros_pose2d_msg);
+    romea::to_ros_msg(stamp,frame_id,romea_pose2d,ros_pose2d_msg);
   }
 
   ros::Time stamp;

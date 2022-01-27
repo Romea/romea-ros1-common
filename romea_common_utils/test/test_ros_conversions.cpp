@@ -12,7 +12,7 @@ TEST(TestRosConversions, testvector3Conversion)
   {
     Eigen::Vector3d vector3(1.2,-3.5,10.);
     geometry_msgs::Vector3 vector3_msg;
-    romea::toRosMsg(vector3,vector3_msg);
+    romea::to_ros_msg(vector3,vector3_msg);
 
     EXPECT_DOUBLE_EQ(vector3.x(),vector3_msg.x);
     EXPECT_DOUBLE_EQ(vector3.y(),vector3_msg.y);
@@ -26,7 +26,7 @@ TEST(TestRosConversions, testvector3Conversion)
     vector3_msg.z=-6;
 
     Eigen::Vector3d vector3;
-    romea::toRomea(vector3_msg,vector3);
+    romea::to_romea(vector3_msg,vector3);
 
     EXPECT_DOUBLE_EQ(vector3.x(),vector3_msg.x);
     EXPECT_DOUBLE_EQ(vector3.y(),vector3_msg.y);
@@ -48,14 +48,14 @@ TEST(TestRosConversions, testQuaternionConversion)
       Eigen::AngleAxis<double>(roll, Eigen::Vector3d::UnitX());
 
   geometry_msgs::Quaternion quaternion_msg;
-  romea::toRosMsg(quaternion,quaternion_msg);
+  romea::to_ros_msg(quaternion,quaternion_msg);
 
   EXPECT_DOUBLE_EQ(quaternion.x(),quaternion_msg.x);
   EXPECT_DOUBLE_EQ(quaternion.y(),quaternion_msg.y);
   EXPECT_DOUBLE_EQ(quaternion.z(),quaternion_msg.z);
   EXPECT_DOUBLE_EQ(quaternion.w(),quaternion_msg.w);
 
-  romea::toRomea(quaternion_msg,quaternion);
+  romea::to_romea(quaternion_msg,quaternion);
   EXPECT_DOUBLE_EQ(quaternion_msg.x,quaternion.x());
   EXPECT_DOUBLE_EQ(quaternion_msg.y,quaternion.y());
   EXPECT_DOUBLE_EQ(quaternion_msg.z,quaternion.z());
@@ -92,7 +92,7 @@ TEST(TestRosConversions, testTransformConversion)
   EXPECT_DOUBLE_EQ(transform_msg.rotation.z,quaternion.z());
   EXPECT_DOUBLE_EQ(transform_msg.rotation.w,quaternion.w());
 
-  romea::toRomea(transform_msg,transform);
+  romea::to_romea(transform_msg,transform);
   EXPECT_DOUBLE_EQ(transform.translation().x(),x);
   EXPECT_DOUBLE_EQ(transform.translation().y(),y);
   EXPECT_DOUBLE_EQ(transform.translation().z(),z);
@@ -114,7 +114,7 @@ TEST(TestRosConversions, testDiagnosticConversion)
   report.info["bar"]="empty";
 
   diagnostic_msgs::DiagnosticStatus status;
-  romea::toRosDiagnosticMsg("baz","qux",report,status);
+  romea::to_ros_diagnostic_msg("baz","qux",report,status);
 
   EXPECT_STREQ(status.name.c_str(),"baz");
   EXPECT_STREQ(status.hardware_id.c_str(),"qux");

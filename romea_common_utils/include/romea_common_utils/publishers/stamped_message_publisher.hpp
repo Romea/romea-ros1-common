@@ -77,7 +77,7 @@ void StampedMessagePublisher<DataType,MessageType>::publish(const ros::Time & st
                                                             const DataType &data)
 {
   boost::shared_ptr<MessageType> msg(new MessageType());
-  toRosMsg(stamp,frame_id_,data,*msg.get());
+  to_ros_msg(stamp,frame_id_,data,*msg.get());
   pub_.publish(msg);
 }
 
@@ -86,7 +86,7 @@ template <class DataType, class MessageType>
 void StampedMessagePublisher<DataType,MessageType>::publish(const romea::Duration & duration,
                                                             const DataType & data)
 {
-  publish(toROSTime(duration),data);
+  publish(to_ros_time(duration),data);
 }
 
 }

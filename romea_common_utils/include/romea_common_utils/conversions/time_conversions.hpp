@@ -9,9 +9,9 @@
 
 namespace romea {
 
-   ros::Time toROSTime(const romea::Duration & duration);
+   ros::Time to_ros_time(const romea::Duration & duration);
 
-   romea::Duration toRomeaDuration(const ros::Time & time);
+   romea::Duration to_romea_duration(const ros::Time & time);
 
    template <typename Msg>
    Duration extractDuration(const Msg & msg)
@@ -19,11 +19,11 @@ namespace romea {
      auto time_stamp = ros::message_traits::timeStamp(msg);
      if(time_stamp)
      {
-       return toRomeaDuration(*time_stamp);
+       return to_romea_duration(*time_stamp);
      }
      else
      {
-       return toRomeaDuration(ros::Time::now());
+       return to_romea_duration(ros::Time::now());
      }
    }
 }

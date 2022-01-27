@@ -11,18 +11,18 @@
 namespace romea
 {
 
-void toRosMsg(const Twist3D & romea_twist_3d,
+void to_ros_msg(const Twist3D & romea_twist_3d,
               geometry_msgs::TwistWithCovariance & ros_twist_msg);
 
-void toRosMsg(const ros::Time & stamp,
+void to_ros_msg(const ros::Time & stamp,
               const std::string & frame_id,
               const Twist3D & romea_twist_3d,
               geometry_msgs::TwistWithCovarianceStamped & ros_twist3d_msg);
 
-void toRomea(const geometry_msgs::TwistWithCovariance & ros_twist_msg,
+void to_romea(const geometry_msgs::TwistWithCovariance & ros_twist_msg,
              Twist3D & romea_twist3d);
 
-Twist3D toRomea(const geometry_msgs::TwistWithCovariance & ros_twist_msg);
+Twist3D to_romea(const geometry_msgs::TwistWithCovariance & ros_twist_msg);
 
 
 }// namespace

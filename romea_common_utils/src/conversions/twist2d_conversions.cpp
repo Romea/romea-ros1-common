@@ -6,7 +6,7 @@ namespace romea
 
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const Twist2D & romea_twist2d,romea_common_msgs::Twist2D & ros_twist2d_msg)
+void to_ros_msg(const Twist2D & romea_twist2d,romea_common_msgs::Twist2D & ros_twist2d_msg)
 {
   ros_twist2d_msg.linear_speeds.x = romea_twist2d.linearSpeeds.x();
   ros_twist2d_msg.linear_speeds.y = romea_twist2d.linearSpeeds.y();
@@ -19,19 +19,19 @@ void toRosMsg(const Twist2D & romea_twist2d,romea_common_msgs::Twist2D & ros_twi
 }
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const ros::Time & stamp,
+void to_ros_msg(const ros::Time & stamp,
               const std::string & frame_id,
               const Twist2D & romea_twist_2d,
               romea_common_msgs::Twist2DStamped & ros_twist2d_msg)
 {
   ros_twist2d_msg.header.stamp=stamp;
   ros_twist2d_msg.header.frame_id=frame_id;
-  toRosMsg(romea_twist_2d,ros_twist2d_msg.twist);
+  to_ros_msg(romea_twist_2d,ros_twist2d_msg.twist);
 }
 
 
 //-----------------------------------------------------------------------------
-void toRomea(const romea_common_msgs::Twist2D &ros_twist2d_msg,
+void to_romea(const romea_common_msgs::Twist2D &ros_twist2d_msg,
              Twist2D & romea_twist2d)
 {
   romea_twist2d.linearSpeeds.x()=ros_twist2d_msg.linear_speeds.x;
@@ -41,10 +41,10 @@ void toRomea(const romea_common_msgs::Twist2D &ros_twist2d_msg,
 }
 
 //-----------------------------------------------------------------------------
-Twist2D toRomea(const romea_common_msgs::Twist2D & ros_twist2d_msg)
+Twist2D to_romea(const romea_common_msgs::Twist2D & ros_twist2d_msg)
 {
   Twist2D romea_twist2d;
-  toRomea(ros_twist2d_msg,romea_twist2d);
+  to_romea(ros_twist2d_msg,romea_twist2d);
   return romea_twist2d;
 }
 

@@ -3,8 +3,8 @@
 namespace romea {
 
 //-----------------------------------------------------------------------------
-void toRomea(const geometry_msgs::Vector3 &position_msg,
-             Eigen::Vector3d & eigen_position)
+void to_romea(const geometry_msgs::Vector3 &position_msg,
+              Eigen::Vector3d & eigen_position)
 {
   eigen_position.x()=position_msg.x;
   eigen_position.y()=position_msg.y;
@@ -12,8 +12,8 @@ void toRomea(const geometry_msgs::Vector3 &position_msg,
 }
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const Eigen::Vector3d & eigen_position,
-              geometry_msgs::Vector3 &position_msg)
+void to_ros_msg(const Eigen::Vector3d & eigen_position,
+                geometry_msgs::Vector3 &position_msg)
 {
   position_msg.x=eigen_position.x();
   position_msg.y=eigen_position.y();
@@ -22,8 +22,8 @@ void toRosMsg(const Eigen::Vector3d & eigen_position,
 }
 
 //-----------------------------------------------------------------------------
-void toRomea(const geometry_msgs::Quaternion & quaternion_msg,
-             Eigen::Quaterniond & eigen_quaternion)
+void to_romea(const geometry_msgs::Quaternion & quaternion_msg,
+              Eigen::Quaterniond & eigen_quaternion)
 {
   eigen_quaternion.x()=quaternion_msg.x;
   eigen_quaternion.y()=quaternion_msg.y;
@@ -32,8 +32,8 @@ void toRomea(const geometry_msgs::Quaternion & quaternion_msg,
 }
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const Eigen::Quaterniond & eigen_quaternion,
-              geometry_msgs::Quaternion & quaternion_msg)
+void to_ros_msg(const Eigen::Quaterniond & eigen_quaternion,
+                geometry_msgs::Quaternion & quaternion_msg)
 {
   quaternion_msg.x=eigen_quaternion.x();
   quaternion_msg.y=eigen_quaternion.y();
@@ -43,20 +43,20 @@ void toRosMsg(const Eigen::Quaterniond & eigen_quaternion,
 
 
 //-----------------------------------------------------------------------------
-void toRomea(const geometry_msgs::Quaternion & quaternion_msg,
-             Eigen::Matrix3d & eigen_rotation_matrix)
+void to_romea(const geometry_msgs::Quaternion & quaternion_msg,
+              Eigen::Matrix3d & eigen_rotation_matrix)
 {
   Eigen::Quaterniond quaternion;
-  toRomea(quaternion_msg,quaternion);
+  to_romea(quaternion_msg,quaternion);
   eigen_rotation_matrix=quaternion.toRotationMatrix();
 }
 
 //-----------------------------------------------------------------------------
-void toRosMsg(const Eigen::Matrix3d & eigen_rotation_matrix,
-              geometry_msgs::Quaternion & quaternion_msg)
+void to_ros_msg(const Eigen::Matrix3d & eigen_rotation_matrix,
+                geometry_msgs::Quaternion & quaternion_msg)
 {
   Eigen::Quaterniond quaternion(eigen_rotation_matrix);
-  toRosMsg(quaternion,quaternion_msg);
+  to_ros_msg(quaternion,quaternion_msg);
 }
 
 }
