@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format3.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>romea_common</name>
+  <version>0.18.1</version>
+  <description>Library of ros common</description>
+
+  <maintainer email="jean.laneurit@inrae.fr">Jean Laneurit</maintainer>
+
+  <license>BSD</license>
+
+  <author>Jean Laneurit</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>romea_common_msgs</exec_depend>
+  <exec_depend>romea_common_utils</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+
+</package>
