@@ -10,7 +10,8 @@ std::unique_ptr<PID> make_pid(ros::NodeHandle &nh)
                                load_param<double>(nh,"ki"),
                                load_param<double>(nh,"kd"),
                                load_param<double>(nh,"imin"),
-                               load_param<double>(nh,"imax"));
+                               load_param<double>(nh,"imax"),
+                               load_param<double>(nh,"error_epsilon"));
 }
 
 }
