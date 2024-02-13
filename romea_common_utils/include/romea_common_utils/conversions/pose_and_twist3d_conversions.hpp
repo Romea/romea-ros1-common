@@ -18,7 +18,7 @@ namespace romea
 {
 
 void  to_ros_odom_msg(const ros::Time &stamp,
-                      const PoseAndTwist3D & poseAndBodyTwist3D,
+                      const core::PoseAndTwist3D & poseAndBodyTwist3D,
                       const std::string & frame_id,
                       const std::string & child_frame_id,
                       nav_msgs::Odometry & odom_msg);

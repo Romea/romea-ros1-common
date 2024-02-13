@@ -17,31 +17,31 @@
 namespace romea
 {
 
-void to_ros_msg(const Pose2D & romea_pose2d,
+void to_ros_msg(const core::Pose2D & romea_pose2d,
                 romea_common_msgs::Pose2D & ros_pose2d_msg);
 
 void to_ros_msg(const ros::Time & stamp,
                 const std::string & frame_id,
-                const Pose2D & romea_pose2d,
+                const core::Pose2D & romea_pose2d,
                 romea_common_msgs::Pose2DStamped & ros_pose2d_msg);
 
-void toRosTransformMsg(const Pose2D & romea_pose2d,
+void toRosTransformMsg(const core::Pose2D & romea_pose2d,
                        geometry_msgs::Transform & ros_transform_msg);
 
 
 void toRosTransformMsg(const ros::Time &stamp,
-                       const Pose2D &romea_pose_2d,
+                       const core::Pose2D &romea_pose_2d,
                        const std::string &frame_id,
                        const std::string &child_frame_id,
                        geometry_msgs::TransformStamped &ros_transform_msg);
 
 void to_romea(const romea_common_msgs::Pose2D &msg,
-              Pose2D & romea_pose_2d);
+              core::Pose2D & romea_pose_2d);
 
-Pose2D to_romea(const romea_common_msgs::Pose2D &msg);
+core::Pose2D to_romea(const romea_common_msgs::Pose2D &msg);
 
 //void to_romea(const romea_localisation_msgs::Pose2DStamped &msg,
-//             Pose2D::Stamped & romea_pose_2d_stamped,
+//             core::Pose2D::Stamped & romea_pose_2d_stamped,
 //             std::string & frame_id);
 
 }// namespace

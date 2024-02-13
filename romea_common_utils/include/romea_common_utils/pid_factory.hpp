@@ -10,7 +10,7 @@
 namespace romea
 {
 
-std::unique_ptr<PID> make_pid(ros::NodeHandle &nh);
+std::unique_ptr<core::PID> make_pid(ros::NodeHandle &nh);
 
 }
 

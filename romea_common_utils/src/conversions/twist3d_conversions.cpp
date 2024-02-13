@@ -5,7 +5,7 @@ namespace romea
 {
 
 //-----------------------------------------------------------------------------
-void to_ros_msg(const Twist3D & romea_twist3d,
+void to_ros_msg(const core::Twist3D & romea_twist3d,
               geometry_msgs::TwistWithCovariance &ros_twist_msg)
 {
 
@@ -30,7 +30,7 @@ void to_ros_msg(const Twist3D & romea_twist3d,
 //-----------------------------------------------------------------------------
 void to_ros_msg(const ros::Time & stamp,
               const std::string & frame_id,
-              const Twist3D & romea_twist_3d,
+              const core::Twist3D & romea_twist_3d,
               geometry_msgs::TwistWithCovarianceStamped & ros_twist3d_msg)
 {
   ros_twist3d_msg.header.stamp=stamp;
@@ -40,7 +40,7 @@ void to_ros_msg(const ros::Time & stamp,
 
 //-----------------------------------------------------------------------------
 void to_romea(const geometry_msgs::TwistWithCovariance &ros_twist_msg,
-             Twist3D & romea_twist3d)
+             core::Twist3D & romea_twist3d)
 {
   romea_twist3d.linearSpeeds.x()=ros_twist_msg.twist.linear.x;
   romea_twist3d.linearSpeeds.y()=ros_twist_msg.twist.linear.y;
@@ -52,9 +52,9 @@ void to_romea(const geometry_msgs::TwistWithCovariance &ros_twist_msg,
 }
 
 //-----------------------------------------------------------------------------
-Twist3D to_romea(const geometry_msgs::TwistWithCovariance & ros_twist_msg)
+core::Twist3D to_romea(const geometry_msgs::TwistWithCovariance & ros_twist_msg)
 {
-  Twist3D twist3d;
+  core::Twist3D twist3d;
   to_romea(ros_twist_msg,twist3d);
   return twist3d;
 }

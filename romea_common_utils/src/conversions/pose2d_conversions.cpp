@@ -7,7 +7,7 @@ namespace romea
 {
 
 //-----------------------------------------------------------------------------
-void to_ros_msg(const Pose2D & romea_pose2d,
+void to_ros_msg(const core::Pose2D & romea_pose2d,
                 romea_common_msgs::Pose2D & ros_pose2d_msg)
 {
   ros_pose2d_msg.position.x = romea_pose2d.position.x();
@@ -24,7 +24,7 @@ void to_ros_msg(const Pose2D & romea_pose2d,
 //-----------------------------------------------------------------------------
 void to_ros_msg(const ros::Time &stamp,
                 const std::string & frame_id,
-                const Pose2D & romea_pose2d,
+                const core::Pose2D & romea_pose2d,
                 romea_common_msgs::Pose2DStamped & ros_pose2d_stamped_msg)
 {
   ros_pose2d_stamped_msg.header.frame_id=frame_id;
@@ -33,7 +33,7 @@ void to_ros_msg(const ros::Time &stamp,
 }
 
 //-----------------------------------------------------------------------------
-void toRosTransformMsg(const Pose2D & romea_pose_2d, geometry_msgs::Transform  & ros_transform_msg)
+void toRosTransformMsg(const core::Pose2D & romea_pose_2d, geometry_msgs::Transform  & ros_transform_msg)
 {
   ros_transform_msg.translation.x=romea_pose_2d.position.x();
   ros_transform_msg.translation.y=romea_pose_2d.position.y();
@@ -50,7 +50,7 @@ void toRosTransformMsg(const Pose2D & romea_pose_2d, geometry_msgs::Transform  &
 
 //-----------------------------------------------------------------------------
 void toRosTransformMsg(const ros::Time &stamp,
-                       const Pose2D & romea_pose_2d,
+                       const core::Pose2D & romea_pose_2d,
                        const std::string &frame_id,
                        const std::string &child_frame_id,
                        geometry_msgs::TransformStamped &ros_transform_msg)
@@ -64,7 +64,7 @@ void toRosTransformMsg(const ros::Time &stamp,
 
 //-----------------------------------------------------------------------------
 void to_romea(const romea_common_msgs::Pose2D &msg,
-              Pose2D & romea_pose_2d)
+              core::Pose2D & romea_pose_2d)
 {
   romea_pose_2d.position.x()=msg.position.x;
   romea_pose_2d.position.y()=msg.position.y;
@@ -73,9 +73,9 @@ void to_romea(const romea_common_msgs::Pose2D &msg,
 }
 
 //-----------------------------------------------------------------------------
-Pose2D to_romea(const romea_common_msgs::Pose2D &msg)
+core::Pose2D to_romea(const romea_common_msgs::Pose2D &msg)
 {
-  Pose2D romea_pose_2d;
+  core::Pose2D romea_pose_2d;
   to_romea(msg,romea_pose_2d);
   return romea_pose_2d;
 }

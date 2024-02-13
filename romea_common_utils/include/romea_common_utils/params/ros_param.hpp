@@ -119,7 +119,7 @@ inline std::map<std::string,T> load_map(const ros::NodeHandle &nodeHandle,
 //-----------------------------------------------------------------------------
 inline bool load_geodetic_coordinates(const ros::NodeHandle &nodeHandle,
                                       const std::string &paramName,
-                                      GeodeticCoordinates & coordinates)
+                                      core::GeodeticCoordinates & coordinates)
 {
 
   std::vector<double> vector;
@@ -129,17 +129,17 @@ inline bool load_geodetic_coordinates(const ros::NodeHandle &nodeHandle,
     return false;
   }
 
-  coordinates= makeGeodeticCoordinates(vector[0]/180.*M_PI,vector[1]/180.*M_PI,vector[2]);
+  coordinates = core::makeGeodeticCoordinates(vector[0]/180.*M_PI,vector[1]/180.*M_PI,vector[2]);
   return true;
 }
 
 //-----------------------------------------------------------------------------
-inline GeodeticCoordinates load_geodetic_coordinates(const ros::NodeHandle &nodeHandle,
+inline core::GeodeticCoordinates load_geodetic_coordinates(const ros::NodeHandle &nodeHandle,
                                                      const std::string &paramName)
 {
   std::string resolvedParamName = nodeHandle.resolveName(paramName);
   std::vector<double> vector = load_vector<double>(nodeHandle,resolvedParamName);
-  return makeGeodeticCoordinates(vector[0]/180.*M_PI,vector[1]/180.*M_PI,vector[2]);
+  return core::makeGeodeticCoordinates(vector[0]/180.*M_PI,vector[1]/180.*M_PI,vector[2]);
 }
 
 }

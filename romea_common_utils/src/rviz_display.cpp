@@ -4,7 +4,7 @@
 namespace {
 
 //-----------------------------------------------------------------------------
-inline  Eigen::Isometry3d computeRobotPose(const romea::Pose2D & bodyPose2D,
+inline  Eigen::Isometry3d computeRobotPose(const romea::core::Pose2D & bodyPose2D,
                                            const double & positionAlongZBodyAxis)
 {
   return Eigen::Translation3d(bodyPose2D.position.x(),
@@ -15,7 +15,7 @@ inline  Eigen::Isometry3d computeRobotPose(const romea::Pose2D & bodyPose2D,
 }
 
 //-----------------------------------------------------------------------------
-inline  Eigen::Isometry3d computeEllipsePose(const romea::Ellipse & ellipse,
+inline  Eigen::Isometry3d computeEllipsePose(const romea::core::Ellipse & ellipse,
                                              const double & positionAlongZBodyAxis)
 {
   return Eigen::Translation3d(ellipse.getCenterPosition().x(),
@@ -31,14 +31,14 @@ namespace romea {
 
 //-----------------------------------------------------------------------------
 void publish(rviz_visual_tools::RvizVisualTools & rvizVisualTool,
-             const Pose2D & bodyPose2D,
+             const core::Pose2D & bodyPose2D,
              const rviz_visual_tools::colors & color,
              double positionAlongZBodyAxis,
              double scaleAlongZBodyAxis,
              double sigma)
 {
 
-  Ellipse ellipse= uncertaintyEllipse(bodyPose2D,sigma);
+  core::Ellipse ellipse= uncertaintyEllipse(bodyPose2D,sigma);
 
   geometry_msgs::Vector3 scale;
   scale.x = ellipse.getMajorRadius();
@@ -59,14 +59,14 @@ void publish(rviz_visual_tools::RvizVisualTools & rvizVisualTool,
 
 //-----------------------------------------------------------------------------
 void publish(rviz_visual_tools::RvizVisualTools & rvizVisualTool,
-             const Position2D & bodyPosition2D,
+             const core::Position2D & bodyPosition2D,
              const rviz_visual_tools::colors & color,
              double positionAlongZBodyAxis,
              double scaleAlongZBodyAxis,
              double sigma)
 {
 
-  Ellipse ellipse= uncertaintyEllipse(bodyPosition2D,sigma);
+  core::Ellipse ellipse= uncertaintyEllipse(bodyPosition2D,sigma);
 
   geometry_msgs::Vector3 scale;
   scale.x = ellipse.getMajorRadius();

@@ -11,7 +11,7 @@ namespace romea
 //-----------------------------------------------------------------------------
 void to_ros_diagnostic_msg(const std::string & diagnoctic_name,
                            const std::string & hardware_id,
-                           const DiagnosticReport & report,
+                           const core::DiagnosticReport & report,
                            diagnostic_msgs::DiagnosticStatus & msg)
 {
   msg.level=static_cast<int>(worseStatus(report.diagnostics));
@@ -20,7 +20,7 @@ void to_ros_diagnostic_msg(const std::string & diagnoctic_name,
 
   for(const auto & diagnostic : report.diagnostics)
   {
-    if(diagnostic.status!=DiagnosticStatus::OK)
+    if(diagnostic.status!=core::DiagnosticStatus::OK)
     {
       msg.message+=diagnostic.message+" ";
     }

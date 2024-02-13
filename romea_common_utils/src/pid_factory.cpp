@@ -4,9 +4,9 @@
 namespace romea
 {
 
-std::unique_ptr<PID> make_pid(ros::NodeHandle &nh)
+std::unique_ptr<core::PID> make_pid(ros::NodeHandle &nh)
 {
-  return std::make_unique<PID>(load_param<double>(nh,"kp"),
+  return std::make_unique<core::PID>(load_param<double>(nh,"kp"),
                                load_param<double>(nh,"ki"),
                                load_param<double>(nh,"kd"),
                                load_param<double>(nh,"imin"),

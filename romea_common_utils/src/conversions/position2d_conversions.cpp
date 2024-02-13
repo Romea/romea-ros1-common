@@ -6,7 +6,7 @@ namespace romea
 {
 
 //-----------------------------------------------------------------------------
-void to_ros_msg(const Position2D & romea_position2d,
+void to_ros_msg(const core::Position2D & romea_position2d,
               romea_common_msgs::Position2D & ros_position2d_msg)
 {
   ros_position2d_msg.x = romea_position2d.position.x();
@@ -22,7 +22,7 @@ void to_ros_msg(const Position2D & romea_position2d,
 //-----------------------------------------------------------------------------
 void to_ros_msg(const ros::Time & stamp,
               const std::string & frame_id,
-              const Position2D & romea_position2d,
+              const core::Position2D & romea_position2d,
               romea_common_msgs::Position2DStamped & ros_position2d_stamped)
 {
   ros_position2d_stamped.header.frame_id=frame_id;
@@ -34,7 +34,7 @@ void to_ros_msg(const ros::Time & stamp,
 
 //-----------------------------------------------------------------------------
 void to_romea(const romea_common_msgs::Position2D & msg,
-             Position2D & position2d)
+             core::Position2D & position2d)
 {
   position2d.position.x()=msg.x;
   position2d.position.y()=msg.y;
@@ -42,9 +42,9 @@ void to_romea(const romea_common_msgs::Position2D & msg,
 }
 
 //-----------------------------------------------------------------------------
-Position2D to_romea(const romea_common_msgs::Position2D &msg)
+core::Position2D to_romea(const romea_common_msgs::Position2D &msg)
 {
-  Position2D position2d;
+  core::Position2D position2d;
   to_romea(msg,position2d);
   return position2d;
 }

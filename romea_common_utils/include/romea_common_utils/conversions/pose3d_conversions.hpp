@@ -16,29 +16,29 @@ namespace romea
 {
 
 
-void toRosTransformMsg(const Pose3D & romea_pose_3d,
+void toRosTransformMsg(const core::Pose3D & romea_pose_3d,
                        geometry_msgs::Transform & ros_transform_msg);
 
 
 void toRosTransformMsg(const ros::Time &stamp,
-                       const Pose3D &romea_pose_3d,
+                       const core::Pose3D &romea_pose_3d,
                        const std::string &frame_id,
                        const std::string &child_frame_id,
                        geometry_msgs::TransformStamped &tf_msg);
 
-void to_ros_msg(const Pose3D & romea_pose_3d,
+void to_ros_msg(const core::Pose3D & romea_pose_3d,
               geometry_msgs::PoseWithCovariance & ros_pose_msg);
 
 void to_ros_msg(const ros::Time & stamp,
               const std::string &frame_id,
-              const Pose3D & romea_pose_3d,
+              const core::Pose3D & romea_pose_3d,
               geometry_msgs::PoseWithCovarianceStamped & ros_pose_msg);
 
 
 void to_romea(const geometry_msgs::PoseWithCovariance & ros_pose_msg,
-             Pose3D & romea_pose_3d);
+             core::Pose3D & romea_pose_3d);
 
-Pose3D to_romea(const geometry_msgs::PoseWithCovariance & ros_pose_msg);
+core::Pose3D to_romea(const geometry_msgs::PoseWithCovariance & ros_pose_msg);
 
 }
 

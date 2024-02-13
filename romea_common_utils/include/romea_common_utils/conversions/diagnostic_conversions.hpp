@@ -11,7 +11,7 @@ namespace romea
 {
 void to_ros_diagnostic_msg(const std::string & diagnostic_name,
                            const std::string & hardware_id,
-                           const DiagnosticReport & report,
+                           const core::DiagnosticReport & report,
                            diagnostic_msgs::DiagnosticStatus &msg);
 
 }
