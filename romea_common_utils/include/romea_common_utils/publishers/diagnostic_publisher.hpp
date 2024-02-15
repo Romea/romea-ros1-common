@@ -34,7 +34,7 @@ public :
             const std::string & hardware_id_="",
             const std::string & topic_name="/diagnostics");
 
-  void publish(const Duration & duration,
+  void publish(const core::Duration & duration,
                const DataType &data);
 
   void publish(const ros::Time & stamp,
@@ -98,7 +98,7 @@ void DiagnosticPublisher<DataType>::init(ros::NodeHandle &nh,
 
 //-----------------------------------------------------------------------------
 template <class DataType>
-void DiagnosticPublisher<DataType>::publish(const Duration & duration,
+void DiagnosticPublisher<DataType>::publish(const core::Duration & duration,
                                             const DataType &data)
 {
   publish(to_ros_time(duration),data);
