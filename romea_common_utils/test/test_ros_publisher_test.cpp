@@ -84,12 +84,12 @@ TEST(TestRosPublisher, testDiagnosticPublisher)
 {
   ros::NodeHandle nh;
   AnyHelper<diagnostic_msgs::DiagnosticArray> h;
-  romea::DiagnosticPublisher<romea::DiagnosticReport> pub(nh,"foo",1.0);
+  romea::DiagnosticPublisher<romea::core::DiagnosticReport> pub(nh,"foo",1.0);
   ros::Subscriber sub = nh.subscribe("/diagnostics", 0, &AnyHelper<diagnostic_msgs::DiagnosticArray>::cb, &h);
 
   ros::Time t= ros::Time::now();
-  romea::DiagnosticReport report;
-  report.diagnostics.push_back(romea::Diagnostic(romea::DiagnosticStatus::ERROR,"bar"));
+  romea::core::DiagnosticReport report;
+  report.diagnostics.push_back(romea::core::Diagnostic(romea::core::DiagnosticStatus::ERROR,"bar"));
   report.info["bar"]="error";
   pub.publish(t,report);
   ros::spinOnce();

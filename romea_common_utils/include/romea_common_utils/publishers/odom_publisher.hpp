@@ -32,7 +32,7 @@ public :
             const std::string & child_frame_id,
             const size_t &queue_size);
 
-  void publish(const Duration & duration,
+  void publish(const core::Duration & duration,
                const DataType &data);
 
   void publish(const ros::Time & stamp,
@@ -87,7 +87,7 @@ void OdomPublisher<DataType>::init(ros::NodeHandle &nh,
 
 //-----------------------------------------------------------------------------
 template <class DataType>
-void OdomPublisher<DataType>::publish(const Duration & duration,
+void OdomPublisher<DataType>::publish(const core::Duration & duration,
                                       const DataType &data)
 {
   publish(to_ros_time(duration),data);

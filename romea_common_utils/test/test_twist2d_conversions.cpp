@@ -29,7 +29,7 @@ public :
 
   ros::Time stamp;
   std::string frame_id;
-  romea::Twist2D romea_twist2d;
+  romea::core::Twist2D romea_twist2d;
   romea_common_msgs::Twist2DStamped ros_twist2d_msg;
 };
 
@@ -47,7 +47,7 @@ TEST_F(TestTwist2DConversion, fromRomeaToRosMsg)
 //-----------------------------------------------------------------------------
 TEST_F(TestTwist2DConversion, fromRosMsgto_romea)
 {
-  romea::Twist2D romea_tsist2d_bis = romea::to_romea(ros_twist2d_msg.twist);
+  romea::core::Twist2D romea_tsist2d_bis = romea::to_romea(ros_twist2d_msg.twist);
 
   EXPECT_DOUBLE_EQ(romea_tsist2d_bis.linearSpeeds.x(),romea_twist2d.linearSpeeds.x());
   EXPECT_DOUBLE_EQ(romea_tsist2d_bis.linearSpeeds.y(),romea_twist2d.linearSpeeds.y());

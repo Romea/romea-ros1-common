@@ -29,7 +29,7 @@ public :
 
   ros::Time stamp;
   std::string frame_id;
-  romea::Pose2D romea_pose2d;
+  romea::core::Pose2D romea_pose2d;
   romea_common_msgs::Pose2DStamped ros_pose2d_msg;
 };
 

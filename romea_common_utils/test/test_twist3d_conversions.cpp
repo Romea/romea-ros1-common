@@ -33,7 +33,7 @@ public :
 
   ros::Time stamp;
   std::string frame_id;
-  romea::Twist3D romea_twist3d;
+  romea::core::Twist3D romea_twist3d;
   geometry_msgs::TwistWithCovarianceStamped ros_twist3d_msg;
 };
 
@@ -54,7 +54,7 @@ TEST_F(TestTwist3DConversion, fromRomeaToRosMsg)
 //-----------------------------------------------------------------------------
 TEST_F(TestTwist3DConversion, fromRosMsgto_romea)
 {
-  romea::Twist3D romea_tsist3d_bis = romea::to_romea(ros_twist3d_msg.twist);
+  romea::core::Twist3D romea_tsist3d_bis = romea::to_romea(ros_twist3d_msg.twist);
 
   EXPECT_DOUBLE_EQ(romea_tsist3d_bis.linearSpeeds.x(),romea_twist3d.linearSpeeds.x());
   EXPECT_DOUBLE_EQ(romea_tsist3d_bis.linearSpeeds.y(),romea_twist3d.linearSpeeds.y());

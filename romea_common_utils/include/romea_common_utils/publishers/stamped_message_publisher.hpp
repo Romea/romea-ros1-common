@@ -27,7 +27,7 @@ public :
                const DataType & data);
 
 
-  void publish(const romea::Duration & duration,
+  void publish(const romea::core::Duration & duration,
                const DataType & data);
 
 protected :
@@ -83,7 +83,7 @@ void StampedMessagePublisher<DataType,MessageType>::publish(const ros::Time & st
 
 //-----------------------------------------------------------------------------
 template <class DataType, class MessageType>
-void StampedMessagePublisher<DataType,MessageType>::publish(const romea::Duration & duration,
+void StampedMessagePublisher<DataType,MessageType>::publish(const romea::core::Duration & duration,
                                                             const DataType & data)
 {
   publish(to_ros_time(duration),data);

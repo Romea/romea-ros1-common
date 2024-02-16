@@ -54,7 +54,7 @@ TEST(TestRosParams, loadVector3i)
 TEST(TestRosParams, loadGeodeticCoordinate)
 {
   ros::NodeHandle private_nh("~");
-  romea::GeodeticCoordinates geodetic_coordinates;
+  romea::core::GeodeticCoordinates geodetic_coordinates;
 
   EXPECT_NO_THROW({geodetic_coordinates=romea::load_geodetic_coordinates(private_nh,"geodetic");});
 

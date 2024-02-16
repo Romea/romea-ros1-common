@@ -31,13 +31,13 @@ public :
     romea_pose3d.orientation.z()=0.3;
     fillEigenCovariance(romea_pose3d.covariance);
     romea::to_ros_msg(stamp,frame_id,romea_pose3d,ros_pose3d_msg);
-    quaternion=romea::eulerAnglesToRotation3D(romea_pose3d.orientation);
+    quaternion=romea::core::eulerAnglesToRotation3D(romea_pose3d.orientation);
   }
 
   ros::Time stamp;
   std::string frame_id;
   std::string child_frame_id;
-  romea::Pose3D romea_pose3d;
+  romea::core::Pose3D romea_pose3d;
   Eigen::Quaterniond quaternion;
   geometry_msgs::PoseWithCovarianceStamped ros_pose3d_msg;
 
@@ -61,7 +61,7 @@ TEST_F(TestPose3DConversion, fromRomeaToRosMsg)
 //-----------------------------------------------------------------------------
 TEST_F(TestPose3DConversion, fromRosMsgto_romea)
 {
-  romea::Pose3D romea_pose3d_bis = romea::to_romea(ros_pose3d_msg.pose);
+  romea::core::Pose3D romea_pose3d_bis = romea::to_romea(ros_pose3d_msg.pose);
 
   EXPECT_DOUBLE_EQ(romea_pose3d_bis.position.x(),romea_pose3d.position.x());
   EXPECT_DOUBLE_EQ(romea_pose3d_bis.position.y(),romea_pose3d.position.y());

@@ -34,7 +34,7 @@ public :
                const DataType & data);
 
 
-  void publish(const romea::Duration & duration,
+  void publish(const romea::core::Duration & duration,
                const DataType & data);
 
 protected :
@@ -92,7 +92,7 @@ void RealtimeStampedMessagePublisher<DataType,MessageType>::publish(const ros::T
 
 //-----------------------------------------------------------------------------
 template <class DataType, class MessageType>
-void RealtimeStampedMessagePublisher<DataType,MessageType>::publish(const romea::Duration & duration,
+void RealtimeStampedMessagePublisher<DataType,MessageType>::publish(const romea::core::Duration & duration,
                                                                     const DataType & data)
 {
   publish(to_ros_time(duration),data);

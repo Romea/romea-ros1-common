@@ -107,9 +107,9 @@ TEST(TestRosConversions, testTransformConversion)
 TEST(TestRosConversions, testDiagnosticConversion)
 {
 
-  romea::DiagnosticReport report;
-  report.diagnostics.push_back(romea::Diagnostic(romea::DiagnosticStatus::OK,"foo"));
-  report.diagnostics.push_back(romea::Diagnostic(romea::DiagnosticStatus::ERROR,"bar"));
+  romea::core::DiagnosticReport report;
+  report.diagnostics.push_back(romea::core::Diagnostic(romea::core::DiagnosticStatus::OK,"foo"));
+  report.diagnostics.push_back(romea::core::Diagnostic(romea::core::DiagnosticStatus::ERROR,"bar"));
   report.info["foo"]="valid";
   report.info["bar"]="empty";
 

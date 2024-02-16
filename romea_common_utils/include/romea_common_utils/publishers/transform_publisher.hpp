@@ -30,7 +30,7 @@ public :
   virtual void publish(const ros::Time & stamp,
                        const DataType & data);
 
-  virtual void publish(const Duration & duration,
+  virtual void publish(const core::Duration & duration,
                        const DataType & data);
 
 protected :
@@ -93,7 +93,7 @@ void TransformPublisher<DataType>::publish(const ros::Time & stamp,
 
 //-----------------------------------------------------------------------------
 template <class DataType>
-void TransformPublisher<DataType>::publish(const romea::Duration & duration,
+void TransformPublisher<DataType>::publish(const romea::core::Duration & duration,
                                            const DataType & data)
 {
   publish(to_ros_time(duration),data);
