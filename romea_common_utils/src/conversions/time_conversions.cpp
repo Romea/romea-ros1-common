@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "romea_common_utils/conversions/time_conversions.hpp"
+#include <romea_core_common/time/Time.hpp>
 
 namespace romea {
 
@@ -26,6 +27,11 @@ ros::Time to_ros_time(const core::Duration & duration)
 core::Duration to_romea_duration(const ros::Time & time)
 {
   return core::Duration(time.toNSec());
+}
+
+core::TimePoint to_romea_time(const ros::Time & time)
+{
+  return core::TimePoint(to_romea_duration(time));
 }
 
 }

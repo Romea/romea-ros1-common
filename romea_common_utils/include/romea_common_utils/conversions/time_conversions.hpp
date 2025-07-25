@@ -27,6 +27,8 @@ namespace romea {
 
    core::Duration to_romea_duration(const ros::Time & time);
 
+   core::TimePoint to_romea_time(const ros::Time & time);
+
    template <typename Msg>
    core::Duration extractDuration(const Msg & msg)
    {
